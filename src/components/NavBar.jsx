@@ -5,10 +5,11 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 
 const NavBar =  () => {
     return (
-        <Navbar fluid rounded>
+        <Navbar fluid rounded className={"bg-gray-50"}>
             <Navbar.Brand href="https://flowbite-react.com">
-                <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+                <div id="logo" className={"text-3xl bg-gradient-to-r from-amber-400 to-red-600 bg-clip-text text-transparent"}>
+                    CRAFTY
+                </div>
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <Dropdown
