@@ -16,6 +16,12 @@ module.exports = {
       },
     },
     extend: {
+      gridTemplateRows: {
+        'layout': 'auto 1fr' ,
+        'layout2': '1fr auto',
+        'layout3': 'auto auto',
+        'layout4': '70% 30%'
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -71,6 +77,7 @@ module.exports = {
         forth : {
           start : '#6F7DFF',
           end : '#7B88FF',
+          flowbite : "#155E75"
 
         }
       },
@@ -98,6 +105,6 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), flowbite.plugin()],
+  plugins: [require("tailwindcss-animate"), flowbite.plugin(), 'prettier-plugin-tailwindcss'],
 }
 

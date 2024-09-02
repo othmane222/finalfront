@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes, Route, Link, Outlet, redirect} from "react-router-dom";
 
 import Profile from "./Profile";
-import ManageUsers from "./ManageUsers";
+import ManageUsers from "./ManageStudents";
 import ManageCategories from "./ManageCategories";
 import ManageCourses from "./ManageCourses";
 

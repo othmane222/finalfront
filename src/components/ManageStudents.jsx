@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import AdminRequests from "../services/AdminRequests";
 import {Card} from "flowbite-react";
 
-const ManageCategories = () => {
+const ManageStudents = () => {
     const[categories, setCategories] = useState([]);
     const [SearchName, setSearchName] = useState("");
     const [alertType, setAlertType] = useState("success");
@@ -18,15 +18,15 @@ const ManageCategories = () => {
     const handleLoadingCategories = () => {
 
         debugger;
-            AdminRequests.getAllCategories().then(
-                (response) => {
-                    setResponseMessage("Categories loaded successfully.");
-                    setAlertType("success");
-                    setCategories(response.data);
-                }).catch((error) => {
-                setResponseMessage("Signup error: " + (error.response?.data?.message || error.message));
-                setAlertType("error");
-            });
+        AdminRequests.getAllCategories().then(
+            (response) => {
+                setResponseMessage("Categories loaded successfully.");
+                setAlertType("success");
+                setCategories(response.data);
+            }).catch((error) => {
+            setResponseMessage("Signup error: " + (error.response?.data?.message || error.message));
+            setAlertType("error");
+        });
     };
 
 
@@ -164,14 +164,14 @@ const ManageCategories = () => {
                                     console.log(category);
                                     return (
                                         <div>
-                                        <Card href="#" className="md:w-4/10 ">
-                                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                                {category.name}
-                                            </h5>
-                                            <p className="font-normal text-gray-700 dark:text-gray-400">
-                                                {category.description}
-                                            </p>
-                                        </Card>
+                                            <Card href="#" className="md:w-4/10 ">
+                                                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                    {category.name}
+                                                </h5>
+                                                <p className="font-normal text-gray-700 dark:text-gray-400">
+                                                    {category.description}
+                                                </p>
+                                            </Card>
                                         </div>
                                     )
 
@@ -184,4 +184,4 @@ const ManageCategories = () => {
     )
 }
 
-export default ManageCategories;
+export default ManageStudents;
