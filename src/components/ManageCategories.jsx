@@ -1,4 +1,4 @@
-import {Button, Checkbox, Label, TextInput, Textarea, Spinner} from "flowbite-react";
+import {Button, Checkbox, Label, TextInput, Textarea, Spinner, Alert} from "flowbite-react";
 import {useEffect, useState} from "react";
 import AdminRequests from "../services/AdminRequests";
 import {Card} from "flowbite-react";
@@ -7,11 +7,10 @@ import AdminCardCategory from "./AdminCardCategory";
 const ManageCategories = () => {
     const[categories, setCategories] = useState([]);
     const [SearchName, setSearchName] = useState("");
-    const [alertType, setAlertType] = useState("success");
+    const [alertType, setAlertType] = useState("");
+    const [alertCreated, setAlertCreated] = useState("");
     const [responseMessage, setResponseMessage] = useState("");
     const [isCreated, setIsCreated] = useState(false);
-    const [isUpdated, setIsUpdated] = useState(false);
-    const [isDeleted, setIsDeleted] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
 
 
@@ -23,10 +22,11 @@ const ManageCategories = () => {
                 (response) => {
                     setResponseMessage("Categories loaded successfully.");
                     setAlertType("success");
+                    console.log(response.data)
                     setCategories(response.data);
                 }).catch((error) => {
                 setResponseMessage("Signup error: " + (error.response?.data?.message || error.message));
-                setAlertType("error");
+                setAlertType("failure");
             });
     };
 
@@ -59,21 +59,42 @@ const ManageCategories = () => {
                             <Label htmlFor="description" value="Description"/>
                             <Textarea id="description" placeholder="Enter category description" required/>
                         </div>
+
+                        <div className={"px-2 py-4"}>
+
+                            {alertCreated.length === 0 ? <></> :
+                                <Alert color={alertType} onDismiss={(e) => {
+                                    setAlertType("")
+                                }}>
+                                    <span className="font-medium">Info! </span>{responseMessage}
+                                </Alert>
+                            }
+                        </div>
                         <Button size="xl" isProcessing={isCreated} outline onClick={
                             (e) => {
                                 setIsCreated(true);
 
-                                const Category = {};
-                                Category.name = document.getElementById("category").value;
-                                Category.description = document.getElementById("description").value;
+                                const category = {
+                                    name: document.getElementById("category").value,
+                                    description: document.getElementById("description").value
+                                }
 
-                                console.log(Category)
+                                console.log("want to create this category")
+                                console.log(category)
 
                                 console.log(AdminRequests)
-                                AdminRequests.createCategory(Category);
-                                setIsCreated(false);
+                                AdminRequests.createCategory(category).then(
+                                    (response) => {
+                                        setResponseMessage("category created successfully");
+                                       setAlertCreated("success");
+                                    }).catch((error) => {
+                                    setResponseMessage("Signup error: " + (error.response?.data?.message || error.message));
+                                    setAlertCreated("failure");
 
+                                });
+                                setTimeout(() => setIsCreated(false), 1000);
                             }
+
                         }>
                             Create!
                         </Button>
@@ -91,7 +112,7 @@ const ManageCategories = () => {
                 <form className=" max-w-full mx-auto py-10 space-y-10">
                     <label htmlFor="default-search"
                            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                    <div className={"pb-10 hover:w-full m-auto w-1/2 transition-all duration-500 focus-within:w-full p4 ps-10 text-sm rounded-lg border border-gray-300 dark:border-gray-700 focus-within:border-blue-500 dark:focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 dark:focus-within:ring-blue-500 focus-within:ring-opacity-50 dark:focus-within:ring-opacity-50 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus-within:outline-none space-y-4"}>
+                    <div className={"pb-10 hover:w-full m-auto w-11/12 transition-all duration-500 focus-within:w-full p4 ps-10 text-sm rounded-lg border border-gray-300 dark:border-gray-700 focus-within:border-blue-500 dark:focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 dark:focus-within:ring-blue-500 focus-within:ring-opacity-50 dark:focus-within:ring-opacity-50 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus-within:outline-none space-y-4"}>
                         <div className="flex flex-row flex-nowrap justify-center align-middle items-center">
                             <div>
                                 {
@@ -127,7 +148,7 @@ const ManageCategories = () => {
                                             console.log("console login category : ")
                                             console.log(category.id);
                                             return (
-                                                <AdminCardCategory key={category.id} name={category.name} description={category.description} />
+                                                <AdminCardCategory something={category.id} name={category.name} description={category.description} />
                                             )
 
                                         }

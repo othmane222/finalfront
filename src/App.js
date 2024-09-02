@@ -13,7 +13,7 @@ import Cart from './components/Cart/Cart';
 import Profile from "./components/Profile";
 import ManageStudents from "./components/ManageStudents";
 import ManageCategories from "./components/ManageCategories";
-import ManageCourses from "./components/ManageCourses";
+import ManageTeachers from "./components/ManageTeachers";
 
 // Other imports...
 
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="" action={() => <Navigate to={"./profile"} />} loader={() => <Navigate to={"./profile"} />} />
       <Route path="manage-users" element={<ManageStudents />} />
       <Route path="manage-categories" element={<ManageCategories />} />
-      <Route path="manage-courses" element={<ManageCourses />} />
+      <Route path="manage-courses" element={<ManageTeachers />} />
 
       </Route>
 

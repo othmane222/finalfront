@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link, Outlet, redirect} from "re
 import Profile from "./Profile";
 import ManageUsers from "./ManageStudents";
 import ManageCategories from "./ManageCategories";
-import ManageCourses from "./ManageCourses";
+import ManageTeachers from "./ManageTeachers";
 
 const AdminDashBoard = () => {
     return (

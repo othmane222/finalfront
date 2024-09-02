@@ -33,7 +33,6 @@ export const updateCourse = (id, course) => {
     return axios.delete(AdminRequests.userURL(id));
 };
     export const getAllCategories = () => {
-        console.log(AdminRequests.AllCategoriesURL());
     return axios.get(AdminRequests.AllCategoriesURL());
 };
     export const getCategory = (id) => {
@@ -46,13 +45,7 @@ export const updateCourse = (id, course) => {
     return axios.delete(AdminRequests.categoryURL(id));
 };
     export const createCategory = (category) => {
-    axios.post(AdminRequests.AllCategoriesURL(), category)
-        .then((response) => {
-            console.log(response.data)
-        })
-        .catch((error) => {
-            console.error(error)
-        });
+    return axios.post(AdminRequests.AllCategoriesURL(), category);
 
 }
 

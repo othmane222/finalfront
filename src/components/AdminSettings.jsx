@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Profile from "./Profile";
 import ManageUsers from "./ManageStudents";
 import ManageCategories from "./ManageCategories";
-import ManageCourses from "./ManageCourses";
+import ManageTeachers from "./ManageTeachers";
 import {useState} from "react";
 
 const AdminSettings = () => {
