@@ -27,19 +27,19 @@ const AdminDashBoard = () => {
                             <div className={" flex flex-col space-y-2 hover:bg-muted px-2 py-4 justify-start"}>
                                 <Link to="/admin/manage-users">
                                     <h3 className="text-lg font-semibold inline-flex items-center whitespace-nowrap rounded-md  transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 px-4 py-2 hover:bg-muted hover:underline justify-start">
-                                        Users
+                                        Students
                                     </h3>
                                 </Link>
-                                <p className="text-muted-foreground px-4">Manage platform Users.</p>
+                                <p className="text-muted-foreground px-4">Manage platform Students.</p>
                             </div>
 
                             <div className={" flex flex-col space-y-2 hover:bg-muted px-2 py-4 justify-start"}>
                                 <Link to="/admin/manage-courses">
                                     <h3 className="text-lg font-semibold inline-flex items-center whitespace-nowrap rounded-md  transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 px-4 py-2 hover:bg-muted hover:underline justify-start">
-                                        Courses
+                                       Teachers
                                     </h3>
                                 </Link>
-                                <p className="text-muted-foreground px-4">Manage courses.</p>
+                                <p className="text-muted-foreground px-4">Manage platform Teachers.</p>
                             </div>
                         </nav>
                     </aside>

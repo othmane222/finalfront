@@ -25,11 +25,11 @@ const Stats = () => {
                     </div>
                     <div className="md:7/12 lg:w-1/2">
                         <h2 className="text-3xl font-bold  md:text-4xl text-black">
-                            Nuxt development is carried out by passionate developers
+                            Crafty has one of the biggest communities out there
                         </h2>
                         <p className="my-8 text-gray-600 ">
-                            Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at?
-                            Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia.  Vitae error, quaerat officia delectus voluptatibus explicabo quo pariatur impedit, at reprehenderit aliquam a ipsum quas voluptatem. Quo pariatur asperiores eum amet</p>
+                            join our community and benefit from the following things
+                        </p>
 
                         <div className="divide-y space-y-4 divide-gray-100 ">
                             <div className="mt-8 flex gap-4 md:items-center">
@@ -40,7 +40,7 @@ const Stats = () => {
                                 </div>
                                 <div className="w-5/6">
                                     <h4 className="font-semibold text-lg text-gray-700 ">Chat Anytime</h4>
-                                    <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
+                                    <p className="text-gray-500 dark:text-gray-400">having a community besides you will help you stick to your progress.</p>
                                 </div>
                             </div>
                             <div className="pt-4 flex gap-4 md:items-center">
@@ -50,8 +50,8 @@ const Stats = () => {
                                     </svg>
                                 </div>
                                 <div class="w-5/6">
-                                    <h4 class="font-semibold text-lg text-gray-700 ">Real Time Location</h4>
-                                    <p class="text-gray-500 ">Asperiores nemo possimus nesciunt quam mollitia.</p>
+                                    <h4 class="font-semibold text-lg text-gray-700 ">Share Location</h4>
+                                    <p class="text-gray-500 ">Share location with people, meet and learn together in groups</p>
                                 </div>
                             </div>
                         </div>

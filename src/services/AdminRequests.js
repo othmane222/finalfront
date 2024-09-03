@@ -48,6 +48,13 @@ export const updateCourse = (id, course) => {
     return axios.post(AdminRequests.AllCategoriesURL(), category);
 
 }
+    export const searchUsersByNameAndRole = (name,role) => {
+    return axios.get(AdminRequests.searchUsersByNameAndRoleURL(), {params: {username: name, role : role}});
+    }
+    export const createUser = (user) => {
+        console.log(user);
+    return axios.post(`${AdminRequests.createUserURL()}?username=${user.username}&email=${user.email}&password=${user.password}&role=${user.role}`);
+    }
 
 const AdminRequests = {
     BASE_URL:  'http://localhost:8080/api/',
@@ -62,7 +69,10 @@ const AdminRequests = {
     categoryURL : (id ) => { return `${AdminRequests.BASE_URL}${AdminRequests.CATEGORIES}/${id}`},
     AllCategoriesURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.CATEGORIES}`},
     CreateCourseURL : (id ) => { return `${AdminRequests.BASE_URL}${AdminRequests.COURSES}/${id}`},
+    searchUsersByNameAndRoleURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.USERS}/searchByNameAndRole`},
+    createUserURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.USERS}/signup`},
 
+    createUser,
     createCourse,
     getAllCourses,
     getCourse,
@@ -76,7 +86,8 @@ const AdminRequests = {
     getCategory,
     updateCategory,
     deleteCategory,
-    createCategory
+    createCategory,
+    searchUsersByNameAndRole
 };
 
 export default AdminRequests;

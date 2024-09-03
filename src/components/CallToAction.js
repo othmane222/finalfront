@@ -66,7 +66,7 @@ const CallToAction = () => {
                         </p>
                         <div className="flex flex-wrap justify-center gap-6">
 
-                            <a href="#" className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:bg-gray-800 sm:w-max">
+                            <a href="#" className="bg-black rounded-2xl relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:bg-gray-800 sm:w-max">
                                 <span className="relative text-base font-semibold text-primary text-white">More about</span>
                             </a>
                         </div>

@@ -109,7 +109,7 @@ const ManageCategories = () => {
                     here goes search, update with delete
                 </div>
 
-                <form className=" max-w-full mx-auto py-10 space-y-10">
+                <form className=" max-w-full mx-auto py-4 space-y-10">
                     <label htmlFor="default-search"
                            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div className={"pb-10 hover:w-full m-auto w-11/12 transition-all duration-500 focus-within:w-full p4 ps-10 text-sm rounded-lg border border-gray-300 dark:border-gray-700 focus-within:border-blue-500 dark:focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 dark:focus-within:ring-blue-500 focus-within:ring-opacity-50 dark:focus-within:ring-opacity-50 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus-within:outline-none space-y-4"}>

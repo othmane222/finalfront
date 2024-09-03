@@ -4,10 +4,12 @@ import {Button, TextInput , Label} from "flowbite-react";
 import AdminRequests from "../services/AdminRequests";
 import {Alert} from "flowbite-react";
 import { HiEye, HiInformationCircle } from "react-icons/hi";
-const AdminCardCategory = (props) => {
+const AdminCardUser = (props) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState(props.name);
-    const [description, setDescription] = useState(props.description);
+    const [username, setUsername] = useState(props.username);
+    const [password, setPassword] = useState(props.password);
+    const [role, setRole] = useState(props.role);
+    const [email, setEmail] = useState(props.email);
     const [id, setId] = useState(props.something);
     const [isProcessingEdit, setIsProcessingEdit] = useState(false);
     const [isProcessingDelete, setIsProcessingDelete] = useState(false);
@@ -23,7 +25,7 @@ const AdminCardCategory = (props) => {
         console.log(props)
 
         debugger;
-        AdminRequests.deleteCategory(id).then(
+        AdminRequests.deleteUser(id).then(
             (response) => {
                 setResponseMessage("User got Deleted successfully.");
                 setAlertType("success");
@@ -47,10 +49,14 @@ const AdminCardCategory = (props) => {
 
         setIsEditing(false);
 
-        AdminRequests.updateCategory(id, {name, description}).then(
+        AdminRequests.updateUser(id, {id: id, username: username, email: email, role : role, password: password}).then(
             (_response) => {
                 setResponseMessage("Category got Updated successfully.");
                 setAlertType("success");
+                setUsername(username);
+                setEmail(email);
+                setRole(role);
+                setPassword(password);
                 setTimeout(()=>setIsProcessingEdit(false), 1000);
             }).catch((error) => {
 
@@ -72,13 +78,13 @@ const AdminCardCategory = (props) => {
                         {isEditing ? (
                             <TextInput
                                 type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                className="text-xl font-medium tracking-tight text-gray-900 dark:text-white my-2"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                className="text-xl font-medium tracking-tight text-gray-900 dark:text-white my-4"
                             />
                         ) : (
-                            <h5 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white">
-                                {name}
+                            <h5 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white my-2">
+                                {username}
                             </h5>
                         )}
 
@@ -86,18 +92,51 @@ const AdminCardCategory = (props) => {
                             <TextInput
                                 type="text"
                                 sizing={"lg"}
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="font-normal text-gray-700 dark:text-gray-400 my-2"
                             />
                         ) : (
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-                                {description}
+                            <p className="font-normal text-gray-700 dark:text-gray-400 my-1">
+                                {email}
                             </p>
                         )}
-                    </div>
 
-                    <div className={`text-sm text-${alertType} dark:text-${alertType} font-medium`}>
+                        {isEditing ? (
+                            <TextInput
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="text-xl font-medium tracking-tight text-gray-900 dark:text-white my-4"
+                            />
+                        ) : (
+                            <h5 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white my-2">
+                                {password}
+                            </h5>
+                        )}
+                        {isEditing ? (
+
+                                <select onChange={(e)=> {
+                                    setRole(e.target.value)
+                                    console.log(e.target.value)
+
+                                }} id="roles"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="STUDENT" selected>STUDENT</option>
+                                    <option value="TEACHER">TEACHER</option>
+
+                                </select>
+                        ) : (
+                            <p className="font-normal text-gray-700 dark:text-gray-400">
+                                {role}
+                            </p>
+                        )
+
+                        }
+
+                            </div>
+
+                            <div className={`text-sm text-${alertType} dark:text-${alertType} font-medium`}>
                         {alertType.length === 0 ? <></> :
                             <Alert color={alertType} onDismiss={(e) => {
                                 setAlertType("")
@@ -151,4 +190,4 @@ const AdminCardCategory = (props) => {
     );
 };
 
-export default AdminCardCategory;
+export default AdminCardUser;

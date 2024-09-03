@@ -11,10 +11,9 @@ const Features = () => {
                     </svg>
 
                     <h2 class="my-8 text-2xl font-bold text-black md:text-4xl">
-                        A technology-first approach to payments
-                        and finance
+                        Crafty, in search of efficient study plans
                     </h2>
-                    <p class="text-gray-600 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi minima aspernatur, quidem nulla cupiditate nam consequatur eligendi magni adipisci.</p>
+                    <p class="text-gray-600 ">trying to make your studies efficient and followed.</p>
                 </div>
                 <div
                     class="mt-16 grid divide-x divide-y divide-gray-700 overflow-hidden rounded-3xl border border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4"
@@ -33,10 +32,10 @@ const Features = () => {
                                 <h5
                                     class="text-xl font-semibold text-white transition group-hover:text-secondary"
                                 >
-                                    First feature
+                                    Measured Progress
                                 </h5>
                                 <p class="text-gray-300">
-                                    Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+                                    we have a dashboard with daily activities and log in time to make you stick to the progress and mesure it
                                 </p>
                             </div>
                             <a href="#" class="flex items-center justify-between group-hover:text-secondary text-white">
@@ -61,10 +60,10 @@ const Features = () => {
                                 <h5
                                     class="text-xl font-semibold text-white transition group-hover:text-secondary"
                                 >
-                                    Second feature
+                                    Notification to continue your strike
                                 </h5>
                                 <p class="text-gray-300">
-                                    Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+                                    you will be notified each time you are about to break you strike to join the platform.
                                 </p>
                             </div>
                             <a href="#" class="flex items-center justify-between group-hover:text-secondary  text-white ">
@@ -89,10 +88,10 @@ const Features = () => {
                                 <h5
                                     class="text-xl font-semibold text-white transition group-hover:text-secondary"
                                 >
-                                    Third feature
+                                    competent teachers
                                 </h5>
                                 <p class="text-gray-300">
-                                    Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+                                    we offer expert teachers in their domains so that you can be a better developer and software engineer
                                 </p>
                             </div>
                             <a href="#" class="flex items-center justify-between group-hover:text-secondary text-white">
@@ -121,10 +120,10 @@ const Features = () => {
                                 <h5
                                     class="text-xl font-semibold text-white transition group-hover:text-secondary"
                                 >
-                                    More features
+                                    project follow deadline
                                 </h5>
                                 <p class="text-gray-300">
-                                    Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+                                    in order to make the experience fun, we add deadlines to make it fun to finish projects before them
                                 </p>
                             </div>
                             <a href="#" class="flex items-center justify-between group-hover:text-secondary text-white ">
