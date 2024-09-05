@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import {Link} from "react-router-dom";
 const LandingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -30,36 +30,19 @@ const LandingNav = () => {
             </div>
           </div>
         </div>
-        <div className="hidden md:block relative">
-          <button
-            onClick={toggleUserMenu}
-            className="w-10 h-10 bg-theme-neutral-800 hover:bg-theme-neutral-700 rounded-full flex items-center justify-center"
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+              to={"/login"}
+              className="bg-theme-neutral-800 hover:bg-theme-neutral-700 rounded-full px-5 py-1 border border-theme-neutral-700 hover:border-theme-neutral-500 transition-all text-theme-neutral-200 font-medium text-lg text-center"
           >
-            {/* Inline SVG for User Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-white"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9A3.75 3.75 0 1112 5.25 3.75 3.75 0 0115.75 9zm-9.75 9a9 9 0 0118 0v.75A2.25 2.25 0 0121 21H3a2.25 2.25 0 01-2.25-2.25v-.75z"
-              />
-            </svg>
-          </button>
-          {isUserMenuOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-50">
-              <div className="py-2 px-4">User Name</div>
-              <div className="py-2 px-4">user@example.com</div>
-              <div className="border-t border-gray-200"></div>
-              <a href="/profile" className="block py-2 px-4 hover:bg-gray-100">Profile</a>
-              <a href="/" className="block py-2 px-4 hover:bg-gray-100">Log out</a>
-            </div>
-          )}
+            Log in
+          </Link>
+          <Link
+              to={"/signup"}
+              className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 hover:from-indigo-500 hover:to-fuchsia-600 rounded-full px-4 py-1 border border-theme-neutral-700 hover:border-theme-neutral-500 transition-all text-theme-neutral-200 font-medium text-lg text-center"
+          >
+            Try now
+          </Link>
         </div>
         <div className="block md:hidden flex items-center z-20" onClick={toggleMenu}>
           <div role="button" className="w-14 h-14 bg-neutral-800 rounded-full flex items-center p-3 hover:bg-neutral-700">

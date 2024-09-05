@@ -21,8 +21,9 @@ const App = () => {
   return (
       <AuthProvider>
     <Routes>
-      <Route path="/" element={<LoginSignup />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<LoginSignup />} />
+      <Route path="/signup" element={<LoginSignup />} />
+      <Route path="/" element={<Home />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/admin" element={<Admin />} />
       <Route path='/categories' element={<Categories/>} />
