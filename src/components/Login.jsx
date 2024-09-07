@@ -1,49 +1,66 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import AuthService from '../../services/AuthService'
-import './LoginSignup.css'
-import groupOfStudents from "../../Assets/group-of-students.jpeg"
+import {Link, useNavigate} from 'react-router-dom'
+import AuthService from '../services/AuthService'
+import groupOfStudents from "../Assets/group-of-students.jpeg"
 import {Image} from "lucide-react";
-const LoginSignup = () => {
-    const [action, setAction] = useState('Login')
+import {Alert, Spinner} from "flowbite-react";
+import { FaCheckCircle } from "react-icons/fa";
+import { HiEye, HiInformationCircle } from "react-icons/hi";
+
+const Login = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [role, setRole] = useState('STUDENT')
     const [responseMessage, setResponseMessage] = useState('')
+    const [loadingState, setLoadingState] = useState("idle");
     const navigate = useNavigate()
 
-    const handleLogin = () => {
+
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        setLoadingState("warning");
+        setResponseMessage('Login you up ...')
         if (email && password) {
             AuthService.login(email, password)
                 .then((response) => {
+                    setLoadingState("success");
+                    setResponseMessage(response.data || 'Login successful.')
                     console.log('Login successful:', response.data)
                     navigate('/home') // Redirect to home page
                 })
                 .catch((error) => {
-                    console.error(
-                        'Login error:',
-                        error.response || error.message || error
-                    )
-                })
-        } else {
-            console.error('Please enter both email and password.')
-        }
-    }
-
-    const handleSignup = () => {
-        if (name && email && password) {
-            AuthService.signup(name, email, password, role)
-                .then((response) => {
-                    setResponseMessage('Signup successful.')
-                })
-                .catch((error) => {
+                    setLoadingState("failure");
                     setResponseMessage(
                         'Signup error: ' +
                         (error.response?.data?.message || error.message)
                     )
                 })
         } else {
+            console.error('Please enter both email and password and make sure they are valid.')
+            setResponseMessage('fill in both email and password')
+        }
+    }
+
+    const handleSignup = () => {
+        setLoadingState("loading");
+        setResponseMessage('Login you up ...')
+        if (name && email && password) {
+            AuthService.signup(name, email, password, role)
+                .then((response) => {
+                    setLoadingState("success");
+                    setResponseMessage('login Successful successful.')
+                })
+                .catch((error) => {
+                    setLoadingState("error");
+                    setResponseMessage(
+                        'Signup error: ' +
+                        (error.response?.data?.message || error.message)
+                    )
+                })
+        } else {
+            setLoadingState("error")
             setResponseMessage('Please fill in all fields.')
         }
     }
@@ -80,12 +97,13 @@ const LoginSignup = () => {
                 />
             </div>
             <div className="container relative  h-screen  flex flex-col items-center justify-center   lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-                <a
+                <Link
                     className=" items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute right-4 top-4 md:right-8 md:top-8"
-                    href="/examples/authentication"
+                    to="/signup"
+
                 >
-                    Login
-                </a>
+                    Sign up
+                </Link>
                 <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
                     <div className="absolute inset-0 bg-zinc-900"></div>
                     <div className="relative z-20 flex items-center text-lg font-medium">
@@ -111,32 +129,16 @@ const LoginSignup = () => {
                     <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
                         <div className="flex flex-col space-y-2 text-center">
                             <h1 className="text-2xl font-semibold tracking-tight">
-                                Create an account
+                               Login
                             </h1>
                             <p className="text-sm text-muted-foreground">
-                                Enter your email below to create your account
+                                Login in to your account
                             </p>
                         </div>
                         <div className="grid gap-6">
                             <form>
                                 <div className="grid gap-2">
                                     <div className="grid gap-1">
-                                        <label
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 sr-only"
-                                            htmlFor="username"
-                                        >
-                                            Username
-
-                                        </label>
-                                        <input
-                                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="username"
-                                            placeholder="username"
-                                            autoCapitalize="none"
-                                            autoComplete="email"
-                                            autoCorrect="off"
-                                            type="text"
-                                        />
 
                                         <label
                                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 sr-only"
@@ -153,25 +155,9 @@ const LoginSignup = () => {
                                             autoComplete="email"
                                             autoCorrect="off"
                                             type="email"
+                                            onChange={(e) => setEmail(e.target.value)}
                                         />
 
-                                        <label
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 sr-only"
-                                            htmlFor="role"
-                                        >
-                                            Role
-
-                                        </label>
-
-                                        <select
-                                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="role"
-                                            value={role}
-                                            onChange={(e) => setRole(e.target.value)}
-                                        >
-                                            <option value="STUDENT">STUDENT</option>
-                                            <option value="TEACHER">TEACHER</option>
-                                        </select>
                                         <label
                                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 sr-only"
                                             htmlFor="role"
@@ -188,29 +174,38 @@ const LoginSignup = () => {
                                             autoComplete="email"
                                             autoCorrect="off"
                                             type="password"
+                                            onChange={(e) => setPassword(e.target.value)}
                                         />
 
 
-                                        <label
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 sr-only"
-                                            htmlFor="role"
-                                        >
-                                            confirm password
+                                    </div>
+                                    <div>
 
-                                        </label>
-                                        <input
-                                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="password-comfirmation"
-                                            placeholder="*****"
-                                            autoCapitalize="none"
-                                            autoComplete="email"
-                                            autoCorrect="off"
-                                            type="password"
-                                        />
+                                        {loadingState !== 'idle' &&
+                                            <Alert
+                                                icon={
+                                                loadingState === 'success' ? FaCheckCircle :
+                                                loadingState === 'failure' ? HiInformationCircle:
+                                                    HiInformationCircle
+
+                                                }
+                                                color={loadingState} onDismiss={(e) => {
+                                                setLoadingState("idle")
+
+                                            }}>
+                                                { loadingState === "warning"  &&
+
+                                                    <Spinner className={"px-2"} size="sm" color="warning" />
+                                                }
+                                                {responseMessage}
+                                            </Alert>
+                                        }
                                     </div>
                                     <button
+                                        onClick={(e) => handleLogin(e)}
                                         className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">
-                                        Sign In with Email
+                                        login
+
                                     </button>
                                 </div>
                             </form>
@@ -264,4 +259,4 @@ const LoginSignup = () => {
     )
 }
 
-export default LoginSignup
+export default Login;

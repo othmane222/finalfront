@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route, Router, redirect, Navigate} from 'react-router-dom';
 import HomePage from './components/Home/Home';
-import LoginSignup from './components/LoginSignup/LoginSignup';
+import Login from './components/Login';
 import ResetPassword from './components/Resetpassword/ResetPassword';
 import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
@@ -14,6 +14,7 @@ import Profile from "./components/Profile";
 import ManageStudents from "./components/ManageStudents";
 import ManageCategories from "./components/ManageCategories";
 import ManageTeachers from "./components/ManageTeachers";
+import Signup from "./components/Signup";
 
 // Other imports...
 
@@ -21,8 +22,8 @@ const App = () => {
   return (
       <AuthProvider>
     <Routes>
-      <Route path="/login" element={<LoginSignup />} />
-      <Route path="/signup" element={<LoginSignup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<Home />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/admin" element={<Admin />} />
