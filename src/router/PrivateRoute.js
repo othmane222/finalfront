@@ -4,6 +4,7 @@ import { useAuth } from "../hooks/AuthProvider";
 
 const PrivateRoute = () => {
     const context = useAuth();
+    console.log("this is not letting it work")
     if (!context.token) return <Navigate to="/login" />;
     return <Outlet />;
 };

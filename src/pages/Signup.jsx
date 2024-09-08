@@ -50,12 +50,13 @@ const Signup = () => {
             setLoadingState("failure");
             return
         }
+        console.log(username,email,password);
         AuthService.signup(username, email, password, "STUDENT")
             .then((response) => {
                 setLoadingState("success");
                 setResponseMessage(response.data || 'Signup successful.')
                 console.log('Signup successful:', response.data)
-                navigate('/home') // Redirect to home page
+                navigate('/DashBoard') // Redirect to home page
             })
             .catch((error) => {
                 setLoadingState("failure");

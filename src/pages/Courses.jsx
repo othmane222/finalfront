@@ -7,8 +7,14 @@ import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import {useAuth} from "../hooks/AuthProvider";
 
-const DashBoard = () => {
+const Courses = () => {
     const auth = useAuth();
+
+    if (!auth.user) {
+        return <div> loading ...</div>;
+
+    }
+
     return (
         <Layout>
 
@@ -26,4 +32,4 @@ const DashBoard = () => {
     );
 };
 
-export default DashBoard;
+export default Courses;

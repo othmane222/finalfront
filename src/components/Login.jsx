@@ -6,6 +6,7 @@ import {Image} from "lucide-react";
 import {Alert, Spinner} from "flowbite-react";
 import { FaCheckCircle } from "react-icons/fa";
 import { HiEye, HiInformationCircle } from "react-icons/hi";
+import {useAuth} from "../hooks/AuthProvider";
 
 const Login = () => {
     const [name, setName] = useState('')
@@ -15,6 +16,7 @@ const Login = () => {
     const [responseMessage, setResponseMessage] = useState('')
     const [loadingState, setLoadingState] = useState("idle");
     const navigate = useNavigate()
+    const auth = useAuth();
 
 
 
@@ -28,7 +30,21 @@ const Login = () => {
                     setLoadingState("success");
                     setResponseMessage(response.data || 'Login successful.')
                     console.log('Login successful:', response.data)
-                    navigate('/home') // Redirect to home page
+                    auth.setUser(response.data)
+                    localStorage.setItem("educationalPlatform", JSON.stringify(response.data));
+                    auth.setToken(localStorage.getItem("educationalPlatform"));
+
+                    if (response.data.role === 'ADMIN'){
+                        navigate('/admin') // Redirect to admin page
+                    }
+                    else if (response.data.role === 'STUDENT') {
+                        console.log("this is executing")
+                        navigate('/dashboard') // Redirect to student page
+                    }
+                    else {
+                        navigate('/teacher') // Redirect to home page
+                    }
+
                 })
                 .catch((error) => {
                     setLoadingState("failure");
@@ -51,6 +67,7 @@ const Login = () => {
                 .then((response) => {
                     setLoadingState("success");
                     setResponseMessage('login Successful successful.')
+                    navigate("/login")
                 })
                 .catch((error) => {
                     setLoadingState("error");

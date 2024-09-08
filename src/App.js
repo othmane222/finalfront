@@ -14,7 +14,8 @@ import Profile from "./components/Profile";
 import ManageStudents from "./components/ManageStudents";
 import ManageCategories from "./components/ManageCategories";
 import ManageTeachers from "./components/ManageTeachers";
-import Signup from "./components/Signup";
+import Signup from "./pages/Signup";
+import Courses from "./pages/Courses";
 
 // Other imports...
 
@@ -31,7 +32,8 @@ const App = () => {
       <Route path='/cart' element={<Cart/>} />
 
         <Route element={<PrivateRoute />}>
-        <Route path="/board" element={<DashBoard />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/courses" element={<Courses />} />
         </Route>
 
 
