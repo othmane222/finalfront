@@ -3,9 +3,12 @@
 
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import {useAuth} from "../hooks/AuthProvider";
+import {useLocation} from "react-router-dom";
 
 const NavBar =  () => {
     const auth = useAuth();
+    const location = useLocation();
+
     return (
         <Navbar fluid rounded className={"bg-gray-50"}>
             <Navbar.Brand href="https://flowbite-react.com">
@@ -34,8 +37,8 @@ const NavBar =  () => {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
-                <Navbar.Link active href="/dashboard">DashBoard</Navbar.Link>
-                <Navbar.Link href="/courses"> Courses</Navbar.Link>
+                <Navbar.Link active={location.pathname === "/dashboard"} href="/dashboard">DashBoard</Navbar.Link>
+                <Navbar.Link active={location.pathname === "/courses"} href="/courses"> Courses</Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     );

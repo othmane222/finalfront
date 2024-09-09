@@ -6,6 +6,7 @@
 import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import {useAuth} from "../hooks/AuthProvider";
+import ComplexSearch from "../components/complexSearch";
 
 const Courses = () => {
     const auth = useAuth();
@@ -22,6 +23,7 @@ const Courses = () => {
                 Welcome Back {auth.user.username}!
             </h1>
             <div id={"search-element"}>
+                <ComplexSearch />
 
 
             </div>

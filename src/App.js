@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route, Router, redirect, Navigate} from 'react-router-dom';
 import HomePage from './components/Home/Home';
-import Login from './components/Login';
+import Login from './pages/Login';
 import ResetPassword from './components/Resetpassword/ResetPassword';
 import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
