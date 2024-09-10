@@ -1,21 +1,35 @@
 import LandingNav from "./LandingNav";
 import hero from "../hero.png";
 import {Container} from "@mui/material";
-
+import {Link} from "react-router-dom";
+import {useState} from "react";
 const MainSection = () => {
     return (
         <div className={"bg-secondary-3"}>
         <div className={"max-w-7xl  flex flex-col sm:flex-row justify-center align-middle space-x-3 mx-auto px-4 sm:px-20"}>
                 <div className="w-full sm:w-10/12 md:w-3/5 mx-auto text-white">
                     <h1 className="my-4 text-5xl font-bold leading-tight ">
-                        Code crafty. your educational platform for software engineering excellence. Join thousands of ambitious learner and crack your dream job!
+                        Code crafty. your educational platform for software engineering excellence.
                     </h1>
                     <p className="leading-normal text-2xl mb-8">
-                        start now and craft your skills!
+                        Join thousands of ambitious learner and crack your dream job!
                     </p>
-                    <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                        Subscribe
-                    </button>
+                    <div className={"flex flex-row gap-1 align-middle"}>
+                    <Link
+                        to={"/signup"}
+                        className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 hover:from-indigo-500 hover:to-fuchsia-600 rounded-full px-4 py-1 border border-theme-neutral-700 hover:border-theme-neutral-500 transition-all text-theme-neutral-200 font-medium text-lg text-center"
+                    >
+                        Try now
+                    </Link>
+                    <span className={"my-auto px-2 "}>Or </span>
+                    <Link
+                        to={"/login"}
+                        className="bg-theme-neutral-800 hover:bg-theme-neutral-700 rounded-full px-5 py-1 border border-theme-neutral-700 hover:border-theme-neutral-500 transition-all text-theme-neutral-200 font-medium text-lg text-center"
+                    >
+                        Log in
+                    </Link>
+
+                    </div>
                 </div>
                 <div className="w-full md:w-3/5 py-6 text-center">
                     <img className="w-full md:w-4/5 z-50" src={hero} />

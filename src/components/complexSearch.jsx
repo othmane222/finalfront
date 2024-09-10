@@ -260,21 +260,23 @@ const ComplexSearch = () => {
                             <div className="mt-4 divide-y rounded-b-xl border  shadow-lg sm:mr-32 sm:ml-28">
                                 {
                                     courses.filter((course) => course.title.toLowerCase().includes(search.toLowerCase())).map((course) => {
-                                        return (
-                                            <div className={"grid grid-cols-layout  grid-rows-2 cursor-pointer text-gray-600 hover:bg-secondary-3 hover:text-white grid-row-1  "}>
-                                                <img className={"row-span-2"} src={images[course.id -1]} alt={course.description} />
-                                            <h1
-                                                className="mx-auto font-bold py-2">{course.title}</h1>
-                                                <div className={"grid grid-cols-layout2 "}>
+                                            return (
+                                                <div
+                                                    className={"grid grid-cols-layout  grid-rows-2 cursor-pointer text-gray-600 hover:bg-secondary-3 hover:text-white grid-row-1  "}>
+                                                    <img className={"row-span-2"} src={images[course.id - 1]}
+                                                         alt={course.description}/>
+                                                    <h1
+                                                        className="mx-auto font-bold py-2">{course.title}</h1>
+                                                    <div className={"grid grid-cols-layout2 "}>
                                                     <span
                                                         className={"underline hover:no-underline mx-auto"}>{course.teacher.username}</span>
-                                                     <span
-                                                    className={"underline hover:no-underline"}>{course.category.name}</span>
+                                                        <span
+                                                            className={"underline hover:no-underline"}>{course.category.name}</span>
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    }
+                                            );
+                                        }
                                     )
                                 }
                             </div>
@@ -310,91 +312,91 @@ const ComplexSearch = () => {
 
                         return (
                             <Link to={`/courses/${course.title}`}>
-                            <Card
-                                className="max-w-sm mx-2 my-6"
-                                key={index}
-                                imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                                imgSrc={images[index]}
-                            >
-                                <a href="#">
-                                    <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0">
-                                        {course.title}
-                                    </h5>
-                                </a>
-                                <div className={"flex flex-col  sm:flex-row gap-2"}>
+                                <Card
+                                    className="max-w-sm mx-2 my-6"
+                                    key={index}
+                                    imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
+                                    imgSrc={images[index]}
+                                >
+                                    <a href="#">
+                                        <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0">
+                                            {course.title}
+                                        </h5>
+                                    </a>
+                                    <div className={"flex flex-col  sm:flex-row gap-2"}>
 
-                                    <p className="mt-0.5 text-sm font-normal text-gray-700 dark:text-gray-400">
-                                        {course.teacher.username} |</p>
-                                    <div id={"categories"}
-                                         className={"text-sm bg-blue-950 rounded-md text-white w-min text-nowrap inline-flex px-0.5 py-0.5"}>
-                                        {course.category.name}
+                                        <p className="mt-0.5 text-sm font-normal text-gray-700 dark:text-gray-400">
+                                            {course.teacher.username} |</p>
+                                        <div id={"categories"}
+                                             className={"text-sm bg-blue-950 rounded-md text-white w-min text-nowrap inline-flex px-0.5 py-0.5"}>
+                                            {course.category.name}
+
+                                        </div>
 
                                     </div>
-
-                                </div>
-                                <div className="my-0.5 flex items-center">
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <span
-                                        className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+                                    <div className="my-0.5 flex items-center">
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span
+                                            className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
           5.0
         </span>
-                                </div>
-                                <div className="flex items-center justify-between">
+                                    </div>
+                                    <div className="flex items-center justify-between">
                                     <span
                                         className="text-sm font-bold text-gray-900 dark:text-white">${course.price}</span>
-                                    <a
-                                        href="#"
-                                        className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                                    >
-                                        Add to cart
-                                    </a>
-                                </div>
-                            </Card>
-                                </Link>
+                                        <a
+                                            href="#"
+                                            className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+                                        >
+                                            Add to cart
+                                        </a>
+                                    </div>
+                                </Card>
+                            </Link>
                         );
                     })}
                 </Carousel>
@@ -422,90 +424,90 @@ const ComplexSearch = () => {
                         return (
 
                             <Link to={`/courses/${course.title}`}>
-                            <Card
-                                className="max-w-sm mx-2 my-6"
-                                key={index}
-                                imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                                imgSrc={images[index]}
-                            >
-                                <a href="#">
-                                    <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0">
-                                        {course.title}
-                                    </h5>
-                                </a>
-                                <div className={"flex flex-col  sm:flex-row gap-2"}>
+                                <Card
+                                    className="max-w-sm mx-2 my-6"
+                                    key={index}
+                                    imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
+                                    imgSrc={images[index]}
+                                >
+                                    <a href="#">
+                                        <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0">
+                                            {course.title}
+                                        </h5>
+                                    </a>
+                                    <div className={"flex flex-col  sm:flex-row gap-2"}>
 
-                                    <p className="mt-0.5 text-sm font-normal text-gray-700 dark:text-gray-400">
-                                        {course.teacher.username} |</p>
-                                    <div id={"categories"}
-                                         className={"text-sm bg-blue-950 rounded-md text-white w-min text-nowrap inline-flex px-0.5 py-0.5"}>
-                                        {course.category.name}
+                                        <p className="mt-0.5 text-sm font-normal text-gray-700 dark:text-gray-400">
+                                            {course.teacher.username} |</p>
+                                        <div id={"categories"}
+                                             className={"text-sm bg-blue-950 rounded-md text-white w-min text-nowrap inline-flex px-0.5 py-0.5"}>
+                                            {course.category.name}
+
+                                        </div>
 
                                     </div>
-
-                                </div>
-                                <div className="my-0.5 flex items-center">
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg
-                                        className="h-5 w-5 text-yellow-300"
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <span
-                                        className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+                                    <div className="my-0.5 flex items-center">
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg
+                                            className="h-5 w-5 text-yellow-300"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span
+                                            className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
           5.0
         </span>
-                                </div>
-                                <div className="flex items-center justify-between">
+                                    </div>
+                                    <div className="flex items-center justify-between">
                                     <span
                                         className="text-sm font-bold text-gray-900 dark:text-white">${course.price}</span>
-                                    <a
-                                        href="#"
-                                        className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                                    >
-                                        Add to cart
-                                    </a>
-                                </div>
-                            </Card>
+                                        <a
+                                            href="#"
+                                            className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+                                        >
+                                            Add to cart
+                                        </a>
+                                    </div>
+                                </Card>
                             </Link>
                         );
                     })}
@@ -513,19 +515,27 @@ const ComplexSearch = () => {
             </div>
 
 
-            <div id={"categories"} className={"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 mx-auto max-w-[1300px]"}>
+            <div id={"categories"}
+                 className={" mx-auto max-w-[1300px]"}>
+            <h1 className={"px-2 py-6 font-bold text-xl"}>
+                Our popular Categories!
+            </h1>
+            <div id={"categories"}
+                 className={"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 mx-auto max-w-[1300px]"}>
                 {
                     category_images.map((category, index) => {
                         const [img, name] = category;
                         return (
-                            <Link to={`/course?category-name=${name}`} className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
-                                <img src={img} alt={name} />
+                            <Link to={`/course?category-name=${name}`}
+                                  className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
+                                <img src={img} alt={name}/>
                                 <p>{name}</p>
                             </Link>);
-                })
+                    })
                 }
 
 
+            </div>
             </div>
 
         </div>
