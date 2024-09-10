@@ -4,6 +4,7 @@ import AdminRequests from "../services/AdminRequests";
 import coursesData from "../fake_data/courses.json"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import {Link} from "react-router-dom";
 
 import { Card } from "flowbite-react";
 import img1 from "../fake_data/course_images/course-1.png";
@@ -12,14 +13,15 @@ import img3 from "../fake_data/course_images/course-3.png";
 import img4 from "../fake_data/course_images/course-4.png";
 import img5 from "../fake_data/course_images/course-5.png";
 
-import cat1 from "../fake_data/categories/category-1.png";
 import cat2 from "../fake_data/categories/category-2.png";
 import cat3 from "../fake_data/categories/category-3.png";
 import cat4 from "../fake_data/categories/category-4.png";
 import cat5 from "../fake_data/categories/category-5.png";
 const ComplexSearch = () => {
+
+    const [courses, setCourses] = useState(coursesData);
     const images = [img1, img2, img3, img4, img5];
-    const category_images = [cat1, cat2, cat3, cat4, cat5];
+    const category_images = [[cat2, "Design"], [cat3,"Development"], [cat4,"machine learning and statistics"], [cat5,"Self Improvements"]];
     const [open, setOpen] = useState(false);
     const [categories, setCategories] = useState([]);
     const [alertType, setAlertType] = useState("");
@@ -27,7 +29,6 @@ const ComplexSearch = () => {
     const [search, setSearch] = useState("");
     const [focus, setFocus] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [courses, setCourses] = useState(coursesData);
     const [numElements, setNumElements] = useState(1);
 
 
@@ -115,7 +116,7 @@ const ComplexSearch = () => {
     return (
         <div>
 
-            <div className="mx-auto mt-5 w-screen max-w-screen-md py-20 leading-6">
+            <div className="mx-auto mt-5 w-screen max-w-screen-md py-20 my-9 leading-6">
                 <form
                     className="relative flex w-full flex-col justify-between rounded-lg border p-2 sm:flex-row sm:items-center sm:p-0">
                     <div className="flex">
@@ -124,7 +125,7 @@ const ComplexSearch = () => {
 
                             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                                     onClick={(e) => setOpen(!open)}
-                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-full"
+                                    className="text-white bg-secondary-3 rounded-md border-secondary-2 hover:bg-secondary-1 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-full"
 
                                     type="button">Filters <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                viewBox="0 0 24 24" stroke="currentColor">
@@ -135,7 +136,7 @@ const ComplexSearch = () => {
                             </button>
 
                             <div id="dropdown"
-                                 className={`w-screen max-w-screen-md  absolute left-0 top-20   z-10 ${open ? "hidden" : "block"} bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700`}>
+                                 className={`w-screen max-w-screen-md  absolute left-0 top-20   z-10 ${!open ? "hidden" : "block"} bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700`}>
 
 
                                 <form action="" className="flex border-t border-gray-200 lg:border-t-0">
@@ -223,7 +224,7 @@ const ComplexSearch = () => {
                                                 onClick={(e) => {
                                                     setOpen(!open)
                                                 }}
-                                                className="rounded bg-blue-600 px-5 py-3 text-xs font-medium text-white active:scale-95">Apply
+                                                className="rounded bg-secondary-3 px-5 py-3 text-xs font-medium text-white active:scale-95">Apply
                                             Filters
                                         </button>
                                     </div>
@@ -245,46 +246,50 @@ const ComplexSearch = () => {
                                    onBlur={(e) => {
                                        setFocus(false)
                                    }}
-                                   className="ml-1 h-14 w-full cursor-text rounded-md border py-4 pl-6 outline-none ring-emerald-200 sm:border-0 sm:pr-40 sm:pl-12 focus:ring "
+                                   className="ml-1 h-14 cursor-text rounded-md border py-4 w-screen outline-none ring-primary-900 sm:border-0 sm:pr-40 sm:pl-12 focus:ring max-w-lg"
                                    placeholder="Course name"/>
 
 
                         </div>
                         <div id={"results"}
-                             className={`absolute top-32 sm:top-12  -left-6  w-screen max-w-screen-md ${focus ? "block " : "hidden"} `}
+                             className={`z-40  absolute top-32 sm:top-12  -left-6  w-screen max-w-screen-md ${focus ? "block " : "hidden"} `}
 
 
                         >
 
-                            <div className="mt-4 divide-y rounded-b-xl border px-4 shadow-lg sm:mr-32 sm:ml-28">
-                                <div
-                                    className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-emerald-400 hover:text-white"><span
-                                    className="m-0 font-medium">Ca</span> <span>lifornia</span></div>
-                                <div
-                                    className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-emerald-400 hover:text-white"><span
-                                    className="m-0 font-medium">Ca</span> <span>nada</span></div>
-                                <div
-                                    className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-emerald-400 hover:text-white"><span
-                                    className="m-0 font-medium">Ca</span> <span>mbodia</span></div>
-                                <div
-                                    className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-emerald-400 hover:text-white"><span
-                                    className="m-0 font-medium">Ca</span> <span>meo</span></div>
-                                <div
-                                    className="cursor-pointer px-4 py-2 text-gray-600 hover:bg-emerald-400 hover:text-white"><span
-                                    className="m-0 font-medium">Ca</span> <span>rsville</span></div>
+                            <div className="mt-4 divide-y rounded-b-xl border  shadow-lg sm:mr-32 sm:ml-28">
+                                {
+                                    courses.filter((course) => course.title.toLowerCase().includes(search.toLowerCase())).map((course) => {
+                                        return (
+                                            <div className={"grid grid-cols-layout  grid-rows-2 cursor-pointer text-gray-600 hover:bg-secondary-3 hover:text-white grid-row-1  "}>
+                                                <img className={"row-span-2"} src={images[course.id -1]} alt={course.description} />
+                                            <h1
+                                                className="mx-auto font-bold py-2">{course.title}</h1>
+                                                <div className={"grid grid-cols-layout2 "}>
+                                                    <span
+                                                        className={"underline hover:no-underline mx-auto"}>{course.teacher.username}</span>
+                                                     <span
+                                                    className={"underline hover:no-underline"}>{course.category.name}</span>
+
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                    )
+                                }
                             </div>
 
                         </div>
 
                     </div>
                     <button type="submit"
-                            className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-md bg-emerald-500 px-10 text-center align-middle text-base font-medium normal-case text-white outline-none ring-emerald-200 ring-offset-1 sm:absolute sm:right-0 sm:mt-0 sm:mr-1 sm:w-32 focus:ring">Search
+                            className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-md bg-secondary-3 px-10 text-center align-middle text-base font-medium normal-case text-white outline-none ring-emerald-200 ring-offset-1 sm:absolute sm:right-0 sm:mt-0 sm:mr-1 sm:w-32 focus:ring">Search
                     </button>
                 </form>
 
 
             </div>
-            <div className="container my-20 ">
+            <div id={"popular-courses"} className="container mt-96 ">
                 <div>
                     <h1 className={"text-xl font-bold"}>
                         Popular courses on Crafty!
@@ -304,6 +309,7 @@ const ComplexSearch = () => {
                         console.log(index);
 
                         return (
+                            <Link to={`/courses/${course.title}`}>
                             <Card
                                 className="max-w-sm mx-2 my-6"
                                 key={index}
@@ -388,12 +394,13 @@ const ComplexSearch = () => {
                                     </a>
                                 </div>
                             </Card>
+                                </Link>
                         );
                     })}
                 </Carousel>
             </div>
 
-            <div className="container my-20 ">
+            <div id={"recommendation"} className="container my-20 ">
                 <div>
                     <h1 className={"text-xl font-bold"}>
                         Recommanded courses for you!
@@ -413,6 +420,8 @@ const ComplexSearch = () => {
                         console.log(index);
 
                         return (
+
+                            <Link to={`/courses/${course.title}`}>
                             <Card
                                 className="max-w-sm mx-2 my-6"
                                 key={index}
@@ -497,13 +506,25 @@ const ComplexSearch = () => {
                                     </a>
                                 </div>
                             </Card>
+                            </Link>
                         );
                     })}
                 </Carousel>
             </div>
 
 
-            <div>
+            <div id={"categories"} className={"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 mx-auto max-w-[1300px]"}>
+                {
+                    category_images.map((category, index) => {
+                        const [img, name] = category;
+                        return (
+                            <Link to={`/course?category-name=${name}`} className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
+                                <img src={img} alt={name} />
+                                <p>{name}</p>
+                            </Link>);
+                })
+                }
+
 
             </div>
 

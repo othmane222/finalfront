@@ -37,8 +37,8 @@ const NavBar =  () => {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
-                <Navbar.Link active={location.pathname === "/dashboard"} href="/dashboard">DashBoard</Navbar.Link>
-                <Navbar.Link active={location.pathname === "/courses"} href="/courses"> Courses</Navbar.Link>
+                <Navbar.Link active={location.pathname.includes("/dashboard")} href="/dashboard">DashBoard</Navbar.Link>
+                <Navbar.Link active={location.pathname.includes("/courses")} href="/courses"> Courses</Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     );

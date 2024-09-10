@@ -6,7 +6,7 @@ const Layout = ({children}) => {
 
     return (
         <>
-            <div className={"space-y-20"}>
+            <div className={""}>
         <NavBar />
         {children}
         <Footer />
