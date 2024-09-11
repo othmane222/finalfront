@@ -19,7 +19,7 @@ import cat4 from "../fake_data/categories/category-4.png";
 import cat5 from "../fake_data/categories/category-5.png";
 const ComplexSearch = () => {
 
-    const [courses, setCourses] = useState(coursesData);
+    const [courses, setCourses] = useState([]);
     const images = [img1, img2, img3, img4, img5];
     const category_images = [[cat2, "Design"], [cat3,"Development"], [cat4,"machine learning and statistics"], [cat5,"Self Improvements"]];
     const [open, setOpen] = useState(false);
@@ -31,6 +31,16 @@ const ComplexSearch = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [numElements, setNumElements] = useState(1);
 
+    const fetchCourses = async () => {
+        try {
+          const response = await fetch('http://localhost:8080/api/courses');
+          const data = await response.json();
+          console.log(data)
+          setCourses(data);
+        } catch (error) {
+          console.error('Error fetching courses', error);
+        }
+      };
 
     const nextSlide = () => {
         setCurrentSlide((currentSlide + 1) % courses.length);
@@ -66,6 +76,7 @@ const ComplexSearch = () => {
 
 
     useEffect(() => {
+        fetchCourses();
         handleLoadingCategories();
         setNumElements(getSlidesPerView());
 
@@ -311,7 +322,7 @@ const ComplexSearch = () => {
                         console.log(index);
 
                         return (
-                            <Link to={`/courses/${course.title}`}>
+                            <Link to={`/courses/${course.id}`}>
                                 <Card
                                     className="max-w-sm mx-2 my-6"
                                     key={index}
@@ -527,6 +538,7 @@ const ComplexSearch = () => {
                         const [img, name] = category;
                         return (
                             <Link to={`/course?category-name=${name}`}
+                            key={index}
                                   className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
                                 <img src={img} alt={name}/>
                                 <p>{name}</p>
