@@ -6,6 +6,7 @@ const LandingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false); // New state for checking if user is a teacher
+  const [isStudent, setIsStudent] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,8 +14,9 @@ const LandingNav = () => {
     console.log("User role in LandingNav:", role); // Log the role received
     if (role === 'TEACHER') {
         setIsTeacher(true); // Set true only if role is TEACHER
-    } else {
-        setIsTeacher(false); // Explicitly set to false for other roles
+    } 
+    if (role == 'STUDENT'){
+      setIsStudent(true);
     }
 }, []);
 
@@ -44,7 +46,10 @@ const LandingNav = () => {
               <a className="font-base font-semibold sm:text-base text-theme-neutral-200 hover:text-fuchsia-500 transition-all" href="/pricing">Pricing</a>
               <a className="font-base font-semibold sm:text-base text-theme-neutral-200 hover:text-fuchsia-500 transition-all" href="/expense">Expense</a>
               <a className="font-base font-semibold sm:text-base text-theme-neutral-200 hover:text-fuchsia-500 transition-all" href="/categories">Categories</a>
-              <a className="font-base font-semibold sm:text-base text-theme-neutral-200 hover:text-fuchsia-500 transition-all" href="/Cart">Cart</a>
+              {isStudent &&(
+                              <a className="font-base font-semibold sm:text-base text-theme-neutral-200 hover:text-fuchsia-500 transition-all" href="/Cart">Cart</a>
+
+              )}
               
               {/* Conditionally render the Add Course button if the user is a teacher */}
               {isTeacher && (
