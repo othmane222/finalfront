@@ -57,7 +57,7 @@ export const updateCourse = (id, course) => {
     }
 
 const AdminRequests = {
-    BASE_URL:  'http://localhost:8080/api/',
+    BASE_URL:  'http://localhost:8081/api/',
     USERS : 'users',
     COURSES : 'courses',
     CATEGORIES : 'categories',

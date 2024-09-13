@@ -20,6 +20,9 @@ import CourseGrid from './components/Courses/CourseGrid';
 import CourseDetails from './components/Courses/CourseDetails';
 import VideoDetails from './components/Courses/VideoDetails';
 import VideoPlayer from './components/Courses/VideoPlayer';
+import AddCourse from './components/AddCourse/AddCourse';
+import Teacher from './components/Teacher/Teacher';
+import Student from './components/Student/Student';
 
 // Other imports...
 
@@ -34,10 +37,14 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path='/categories' element={<Categories />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path="/add-course" element={<AddCourse />} />
+        <Route path='/teacher' element={<Teacher/>}/>
 
         <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/dashboard" element={<Student/>} />
           <Route path="/courses" element={<Courses />} />
+          
+
         </Route>
 
 
