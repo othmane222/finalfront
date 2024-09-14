@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+const axios = require('axios');
 const API_URL = 'http://localhost:8081/api/users/';
 
 const login = async (email, password) => {
