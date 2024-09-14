@@ -1,9 +1,11 @@
 module.exports = {
-    transform: {
-      '^.+\\.jsx?$': 'babel-jest',
-    },
-    transformIgnorePatterns: [
-      '/node_modules/(?!(axios)/)', // Ignore node_modules except for axios
-    ],
-  };
-  
+  transform: {
+    '^.+\\.[t|j]sx?$': 'babel-jest',
+  },
+  transformIgnorePatterns: [
+    '/node_modules/(?!axios)',
+  ],
+  moduleNameMapper: {
+    '^axios$': require.resolve('axios'), // Resolve axios correctly
+  },
+};
