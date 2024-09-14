@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import VideoPlayer from './VideoPlayer';
 import styles from './CourseDetails.module.css';
+import { useParams } from 'react-router-dom';
 
 const CourseDetails = () => {
-    const { id } = useParams();
+    const { courseId } = useParams();
     const [course, setCourse] = useState(null);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isDetailsVisible, setIsDetailsVisible] = useState(true);
@@ -13,17 +13,20 @@ const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState('details');
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/courses/${id}`)
+        
+        axios.get(`http://localhost:8081/api/courses/${courseId}`)
             .then(response => {
+                console.log('👍👍👍👍👍');
                 setCourse(response.data);
                 if (response.data.videos.length > 0) {
                     setSelectedVideo(response.data.videos[0]);
+                    console.log('👍👍👍👍👍');
                 }
             })
             .catch(error => {
                 console.error("Error fetching course details:", error);
             });
-    }, [id]);
+    }, [courseId]);
 
     useEffect(() => {
         if (course && course.videos.length > 0) {
@@ -32,7 +35,6 @@ const CourseDetails = () => {
     }, [course]);
 
     const handleVideoClick = (video) => {
-        console.log('Selected Video:', video);
         setSelectedVideo(video);
     };
 
@@ -56,7 +58,7 @@ const CourseDetails = () => {
                 <div className={`${styles.videoPlayerContainer} ${!isVideoListVisible ? styles.fullWidth : ''}`}>
                     {selectedVideo && (
                         <VideoPlayer
-                            videoSrc={`http://localhost:8080/api/videos/stream?fileName=${encodeURIComponent(selectedVideo.filePath)}`}
+                            videoSrc={`http://localhost:8081/api/videos/stream?fileName=${encodeURIComponent(selectedVideo.filePath)}`}
                         />
                     )}
                 </div>
