@@ -2,7 +2,7 @@
 //import BannerBackground from "../components/Assets/home-banner-background.png";
 //import BannerImage from "../components/Assets/home-banner-image.png";
 import LandingNav from "../components/LandingNav";
-import { FiArrowRight } from "react-icons/fi";
+//import { FiArrowRight } from "react-icons/fi";
 import MainSection from "../components/MainSection";
 import Work from "../components/Work";
 import Testimonial from "../components/Testimonial";

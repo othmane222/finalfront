@@ -5,14 +5,14 @@ import groupOfStudents from "../Assets/group-of-students.jpeg"
 import {Image} from "lucide-react";
 import {Alert, Spinner} from "flowbite-react";
 import { FaCheckCircle } from "react-icons/fa";
-import { HiEye, HiInformationCircle } from "react-icons/hi";
+import {HiInformationCircle } from "react-icons/hi";
 import {useAuth} from "../hooks/AuthProvider";
 
 const Login = () => {
-    const [name, setName] = useState('')
+    const [name] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [role, setRole] = useState('STUDENT')
+    const [role] = useState('STUDENT')
     const [responseMessage, setResponseMessage] = useState('')
     const [loadingState, setLoadingState] = useState("idle");
     const navigate = useNavigate()
@@ -59,7 +59,7 @@ const Login = () => {
         }
     }
 
-    const handleSignup = () => {
+   /* const handleSignup = () => {
         setLoadingState("loading");
         setResponseMessage('Login you up ...')
         if (name && email && password) {
@@ -80,11 +80,11 @@ const Login = () => {
             setLoadingState("error")
             setResponseMessage('Please fill in all fields.')
         }
-    }
+    }*/
 
-    const handleResetPasswordClick = () => {
+    /*const handleResetPasswordClick = () => {
         navigate('/reset-password')
-    }
+    }*/
 
     return (
         <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow ">

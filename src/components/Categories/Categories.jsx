@@ -58,7 +58,7 @@ const Categories = ({ onClose }) => {
           <div key={index} className="category-card">
             <img 
               src={category.image ? category.image : "/path-to-default-image.png"} 
-              alt={`${category.name} image`} 
+              alt={category.name} 
               className="category-image" 
             />
             <h3 className="category-name">{category.name}</h3>

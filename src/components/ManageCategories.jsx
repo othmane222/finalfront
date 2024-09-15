@@ -1,7 +1,7 @@
-import {Button, Checkbox, Label, TextInput, Textarea, Spinner, Alert} from "flowbite-react";
+import {Button, Label, TextInput, Textarea, Spinner, Alert} from "flowbite-react";
 import {useEffect, useState} from "react";
 import AdminRequests from "../services/AdminRequests";
-import {Card} from "flowbite-react";
+//import {Card} from "flowbite-react";
 import AdminCardCategory from "./AdminCardCategory";
 
 const ManageCategories = () => {

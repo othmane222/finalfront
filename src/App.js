@@ -1,10 +1,10 @@
 import React from 'react';
-import { Routes, Route, Router, redirect, Navigate } from 'react-router-dom';
-import HomePage from './components/Home/Home';
+import { Routes, Route} from 'react-router-dom';
+//import HomePage from './components/Home/Home';
 import Login from './pages/Login';
 import ResetPassword from './components/Resetpassword/ResetPassword';
 import Home from "./pages/Home";
-import DashBoard from "./pages/DashBoard";
+//import DashBoard from "./pages/DashBoard";
 import PrivateRoute from "./router/PrivateRoute";
 import AuthProvider from "./hooks/AuthProvider";
 import Admin from "./pages/Admin";

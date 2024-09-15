@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AuthService from '../../services/AuthService'; // Service for authentication
 import axios from 'axios';
-import Courses from '../../pages/Courses';
-import CourseGrid from '../Courses/CourseGrid';
+//import Courses from '../../pages/Courses';
+//import CourseGrid from '../Courses/CourseGrid';
 import { Link } from 'react-router-dom';
 
 const ProfilePage = () => {

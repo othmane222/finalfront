@@ -1,9 +1,9 @@
 import React from "react";
 //import Logo from "../components/Assets/Logo.svg";
-import { BsTwitter } from "react-icons/bs";
-import { SiLinkedin } from "react-icons/si";
-import { BsYoutube } from "react-icons/bs";
-import { FaFacebookF } from "react-icons/fa";
+//import { BsTwitter } from "react-icons/bs";
+//import { SiLinkedin } from "react-icons/si";
+//import { BsYoutube } from "react-icons/bs";
+//import { FaFacebookF } from "react-icons/fa";
 import {Container} from "@mui/material";
 
 const Footer = () => {
@@ -16,18 +16,18 @@ const Footer = () => {
                   class="flex w-full justify-center space-x-12 text-gray-600  sm:w-7/12 md:justify-start"
               >
                 <ul class="list-inside list-disc space-y-8">
-                  <li><a href="#" class="transition hover:text-primary">Home</a></li>
+                  <li><a href="/" class="transition hover:text-primary">Home</a></li>
 
-                  <li><a href="#" class="transition hover:text-primary">About</a></li>
-                  <li><a href="#" class="transition hover:text-primary">Guide</a></li>
-                  <li><a href="#" class="transition hover:text-primary">Blocks</a></li>
-                  <li><a href="#" class="transition hover:text-primary">Contact</a></li>
-                  <li><a href="#" class="transition hover:text-primary">Terms of Use</a></li>
+                  <li><a href="/" class="transition hover:text-primary">About</a></li>
+                  <li><a href="/" class="transition hover:text-primary">Guide</a></li>
+                  <li><a href="/" class="transition hover:text-primary">Blocks</a></li>
+                  <li><a href="/" class="transition hover:text-primary">Contact</a></li>
+                  <li><a href="/" class="transition hover:text-primary">Terms of Use</a></li>
                 </ul>
 
                 <ul role="list" class="space-y-8">
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
@@ -42,7 +42,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
@@ -57,7 +57,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
@@ -73,7 +73,7 @@ const Footer = () => {
                   </li>
 
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
@@ -88,7 +88,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
@@ -103,7 +103,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -120,7 +120,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <img
                           class="h-5 w-5"
                           width="32"
@@ -132,7 +132,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="flex items-center space-x-3 transition hover:text-primary">
+                    <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
@@ -158,12 +158,12 @@ const Footer = () => {
                 <span class="block text-gray-500 ">Tailus Blocks &copy; <span id="year"></span></span>
 
                 <span class="flex justify-between text-gray-600 ">
-              <a href="#" class="font-medium">Terms of Use </a>
-              <a href="#" class="font-medium"> Privacy Policy</a>
+              <a href="/" class="font-medium">Terms of Use </a>
+              <a href="/" class="font-medium"> Privacy Policy</a>
             </span>
 
                 <span class="block text-gray-500 "
-                >Need help? <a href="#" class="font-semibold text-gray-600 "> Contact Us</a></span
+                >Need help? <a href="/" class="font-semibold text-gray-600 "> Contact Us</a></span
                 >
               </div>
             </div>

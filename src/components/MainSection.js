@@ -1,8 +1,8 @@
-import LandingNav from "./LandingNav";
+//import LandingNav from "./LandingNav";
 import hero from "../hero.png";
-import {Container} from "@mui/material";
+//import {Container} from "@mui/material";
 import {Link} from "react-router-dom";
-import {useState} from "react";
+//import {useState} from "react";
 const MainSection = () => {
     return (
         <div className={"bg-secondary-3"}>
@@ -32,7 +32,7 @@ const MainSection = () => {
                     </div>
                 </div>
                 <div className="w-full md:w-3/5 py-6 text-center">
-                    <img className="w-full md:w-4/5 z-50" src={hero} />
+                    <img alt="" className="w-full md:w-4/5 z-50" src={hero} />
                 </div>
             </div>
         <div className="relative -mt-12 lg:-mt-24 ">

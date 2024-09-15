@@ -1,8 +1,8 @@
-import {Button, Checkbox, Label, TextInput, Textarea, Spinner, Alert} from "flowbite-react";
-import {useEffect, useState} from "react";
+import {Button, Label, TextInput, Spinner, Alert} from "flowbite-react";
+import {useState} from "react";
 import AdminRequests from "../services/AdminRequests";
-import {Card} from "flowbite-react";
-import AdminCardCategory from "./AdminCardCategory";
+//import {Card} from "flowbite-react";
+//import AdminCardCategory from "./AdminCardCategory";
 import AdminCardUser from "./AdminCardUser";
 const ManageTeachers = () => {
     const[users, setUsers] = useState([]);

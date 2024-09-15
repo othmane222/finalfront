@@ -1,8 +1,7 @@
-import {BrowserRouter as Router, Routes, Route, Link, Outlet, redirect} from "react-router-dom";
-
-import ManageUsers from "./ManageStudents";
-import ManageCategories from "./ManageCategories";
-import ManageTeachers from "./ManageTeachers";
+import {Link, Outlet} from "react-router-dom";
+//import ManageUsers from "./ManageStudents";
+//import ManageCategories from "./ManageCategories";
+//import ManageTeachers from "./ManageTeachers";
 
 const AdminDashBoard = () => {
     return (

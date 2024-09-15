@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'; // Import the user icon
 
 const LandingNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  //const [isOpen, setIsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
@@ -26,9 +26,9 @@ const LandingNav = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
   };
 
-  const handleProfile = () => {
+  /*const handleProfile = () => {
     navigate('/profile'); 
-  };
+  };*/
 
   const handleLogout = () => {
     AuthService.logout(); 

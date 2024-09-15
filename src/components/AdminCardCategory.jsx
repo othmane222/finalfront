@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-import {Button, TextInput , Label} from "flowbite-react";
+import {Button, TextInput} from "flowbite-react";
 import AdminRequests from "../services/AdminRequests";
 import {Alert} from "flowbite-react";
-import { HiEye, HiInformationCircle } from "react-icons/hi";
+import {HiInformationCircle } from "react-icons/hi";
 const AdminCardCategory = (props) => {
     const [isEditing, setIsEditing] = useState(false);
     const [name, setName] = useState(props.name);
     const [description, setDescription] = useState(props.description);
-    const [id, setId] = useState(props.something);
+    const [id] = useState(props.something);
     const [isProcessingEdit, setIsProcessingEdit] = useState(false);
     const [isProcessingDelete, setIsProcessingDelete] = useState(false);
     const [alertType, setAlertType] = useState("");

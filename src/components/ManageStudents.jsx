@@ -1,14 +1,14 @@
-import {Button, Checkbox, Label, TextInput, Textarea, Spinner} from "flowbite-react";
+import {Spinner} from "flowbite-react";
 import {useEffect, useState} from "react";
 import AdminRequests from "../services/AdminRequests";
-import {Card} from "flowbite-react";
-import AdminCardCategory from "./AdminCardCategory";
+//import {Card} from "flowbite-react";
+//import AdminCardCategory from "./AdminCardCategory";
 import AdminCardUser from "./AdminCardUser";
 const ManageStudents = () => {
     const[users, setUsers] = useState([]);
     const [SearchName, setSearchName] = useState("");
-    const [alertType, setAlertType] = useState("success");
-    const [responseMessage, setResponseMessage] = useState("");
+    const [setAlertType] = useState("success");
+    const [setResponseMessage] = useState("");
     const [isSearching, setIsSearching] = useState(false);
 
 

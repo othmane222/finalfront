@@ -3,9 +3,9 @@
 //import BannerImage from "../components/Assets/home-banner-image.png";
 
 
-import NavBar from "../components/NavBar";
+//import NavBar from "../components/NavBar";
 import AdminDashBoard from "../components/AdminDashBoard";
-import AdminSettings from "../components/AdminSettings";
+//import AdminSettings from "../components/AdminSettings";
 
 import Layout from "../components/Layout";
 

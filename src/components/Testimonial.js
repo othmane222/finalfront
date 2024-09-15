@@ -1,6 +1,6 @@
 import React from "react";
 //import ProfilePic from "../components/Assets/";
-import { AiFillStar } from "react-icons/ai";
+//import { AiFillStar } from "react-icons/ai";
 import {Container} from "@mui/material";
 
 import av1 from "../Assets/avatars/avatar.webp";

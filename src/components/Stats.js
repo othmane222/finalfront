@@ -16,7 +16,7 @@ const Stats = () => {
                     <div className="md:5/12 lg:w-1/2">
                         <img
                             src= {pie}
-                            alt="image"
+                            alt=""
                             loading="lazy"
                             width=""
                             height=""

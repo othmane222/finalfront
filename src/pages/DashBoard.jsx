@@ -3,7 +3,7 @@
 //import BannerImage from "../components/Assets/home-banner-image.png";
 
 
-import NavBar from "../components/NavBar";
+//import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import {useAuth} from "../hooks/AuthProvider";
 

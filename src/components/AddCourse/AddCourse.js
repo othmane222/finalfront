@@ -265,12 +265,12 @@ const AddCourse = () => {
     setQcms([...qcms, { question: '', correctAnswer: '', possibleAnswers: [''] }]);
   };
 
-  const addPossibleAnswerField = (index) => {
+  /*const addPossibleAnswerField = (index) => {
     const newQcms = [...qcms];
     newQcms[index].possibleAnswers.push('');
     setQcms(newQcms);
   };
-
+*/
   return (
     <div>
       <LandingNav />

@@ -1,8 +1,8 @@
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+//import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
-import ManageUsers from "./ManageStudents";
-import ManageCategories from "./ManageCategories";
-import ManageTeachers from "./ManageTeachers";
+//import ManageUsers from "./ManageStudents";
+//import ManageCategories from "./ManageCategories";
+//import ManageTeachers from "./ManageTeachers";
 import {useState} from "react";
 
 const AdminSettings = () => {
@@ -28,7 +28,7 @@ const AdminSettings = () => {
                             <section className="py-20 mx-auto space-y-8 sm:py-20">
                             <div style={{width: '800px'}} className="container flex flex-row items-stretch justify-center w-full max-w-4xl space-x-12">
                             <div className="flex flex-col justify-start w-1/4 space-y-4">
-                                <a className={`px-4 py-2 text-sm ${tab === 1 ? 'z-20 border-l-2 transform translate-x-2 border-blue-500 font-bold' : 'transform -translate-x-2'}`} href="#" onClick={(e) => { e.preventDefault(); setTab(1); }}>
+                                <a className={`px-4 py-2 text-sm ${tab === 1 ? 'z-20 border-l-2 transform translate-x-2 border-blue-500 font-bold' : 'transform -translate-x-2'}`}  onClick={(e) => { e.preventDefault(); setTab(1); }}>
                                     BATMAN & ROBIN
                                 </a>
                                 {/* Repeat for other tabs */}

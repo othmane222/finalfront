@@ -6,14 +6,14 @@ import groupOfStudents from "../Assets/group-of-students.jpeg"
 import {Image} from "lucide-react";
 import {Alert, Spinner} from "flowbite-react";
 import { FaCheckCircle } from "react-icons/fa";
-import { HiEye, HiInformationCircle } from "react-icons/hi";
+import {HiInformationCircle } from "react-icons/hi";
 
 const Signup = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [role, setRole] = useState('STUDENT')
+    //const [role, setRole] = useState('STUDENT')
     const [responseMessage, setResponseMessage] = useState('')
     const [loadingState, setLoadingState] = useState("idle");
     const navigate = useNavigate()
