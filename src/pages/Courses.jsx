@@ -19,7 +19,7 @@ const Courses = () => {
     return (
         <Layout>
 
-            <h1 className={"font-bold text-3xl text-center"}>
+            <h1 className={"font-bold text-3xl text-center py-12 "}>
                 Welcome Back {auth.user.username}!
             </h1>
             <div id={"search-element"}>

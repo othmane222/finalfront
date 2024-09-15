@@ -57,7 +57,7 @@ export const updateCourse = (id, course) => {
     }
 
 const AdminRequests = {
-    BASE_URL:  'http://localhost:8081/api/',
+    BASE_URL:  'http://localhost:8080/api/',
     USERS : 'users',
     COURSES : 'courses',
     CATEGORIES : 'categories',
@@ -69,7 +69,7 @@ const AdminRequests = {
     categoryURL : (id ) => { return `${AdminRequests.BASE_URL}${AdminRequests.CATEGORIES}/${id}`},
     AllCategoriesURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.CATEGORIES}`},
     CreateCourseURL : (id ) => { return `${AdminRequests.BASE_URL}${AdminRequests.COURSES}/${id}`},
-    searchUsersByNameAndRoleURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.USERS}/searchByNameAndRole`},
+    searchUsersByNameAndRoleURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.USERS}/searchByUsernameAndRole`},
     createUserURL : () => { return `${AdminRequests.BASE_URL}${AdminRequests.USERS}/signup`},
 
     createUser,

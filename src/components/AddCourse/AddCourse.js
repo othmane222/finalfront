@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import LandingNav from '../LandingNav';
-import Footer from '../Footer';
+import Layout from '../../components/Layout';
+import { useAuth } from '../../hooks/AuthProvider'
 
 const AddCourse = () => {
   const [title, setTitle] = useState('');
@@ -25,27 +25,19 @@ const AddCourse = () => {
   const [faqs, setFaqs] = useState([{ question: '', answer: '' }]);
   const [qcms, setQcms] = useState([{ question: '', correctAnswer: '', possibleAnswers: [''] }]);
 
+  const auth = useAuth();
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:8081/api/categories');
+        const response = await axios.get('http://localhost:8080/api/categories');
         setCategories(response.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
     };
 
-    const fetchTeachers = async () => {
-      try {
-        const response = await axios.get('http://localhost:8081/api/users');
-        setTeachers(response.data.filter(user => user.role === 'TEACHER'));
-      } catch (error) {
-        console.error('Error fetching teachers:', error);
-      }
-    };
 
     fetchCategories();
-    fetchTeachers();
   }, []);
 
   // Course submission
@@ -58,14 +50,14 @@ const AddCourse = () => {
       description,
       price,
       category: { id: categoryId },
-      teacher: { id: teacherId },
+      teacher: { id: auth.id },
     };
 
     formData.append('course', JSON.stringify(courseData));
     formData.append('pdfFile', pdfFile);
 
     try {
-      const response = await axios.post('http://localhost:8081/api/courses', formData, {
+      const response = await axios.post('http://localhost:8080/api/courses', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -272,8 +264,9 @@ const AddCourse = () => {
   };
 
   return (
+      <Layout>
     <div>
-      <LandingNav />
+
       <div className="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Add a New Course</h2>
 
@@ -334,24 +327,6 @@ const AddCourse = () => {
               </label>
             </div>
 
-            <div className="flex flex-col">
-              <label className="block mb-2">
-                Teacher:
-                <select
-                  value={teacherId}
-                  onChange={(e) => setTeacherId(e.target.value)}
-                  className="border w-full px-3 py-2 rounded"
-                  required
-                >
-                  <option value="">Select a teacher</option>
-                  {teachers.map((teacher) => (
-                    <option key={teacher.id} value={teacher.id}>
-                      {teacher.username}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
 
             <div className="flex flex-col">
               <label className="text-gray-700 mb-2" htmlFor="pdfFile">PDF File</label>
@@ -570,8 +545,9 @@ const AddCourse = () => {
 )}
 
       </div>
-      <Footer/>
     </div>
+
+</Layout>
   );
 };
 

@@ -17,9 +17,10 @@ import cat2 from "../fake_data/categories/category-2.png";
 import cat3 from "../fake_data/categories/category-3.png";
 import cat4 from "../fake_data/categories/category-4.png";
 import cat5 from "../fake_data/categories/category-5.png";
+import {useAuth} from "../hooks/AuthProvider";
 const ComplexSearch = () => {
 
-    const [courses, setCourses] = useState([]);
+    const [courses, setCourses] = useState(coursesData);
     const images = [img1, img2, img3, img4, img5];
     const category_images = [[cat2, "Design"], [cat3,"Development"], [cat4,"machine learning and statistics"], [cat5,"Self Improvements"]];
     const [open, setOpen] = useState(false);
@@ -31,16 +32,7 @@ const ComplexSearch = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [numElements, setNumElements] = useState(1);
 
-    const fetchCourses = async () => {
-        try {
-          const response = await fetch('http://localhost:8081/api/courses');
-          const data = await response.json();
-          console.log(data)
-          setCourses(data);
-        } catch (error) {
-          console.error('Error fetching courses', error);
-        }
-      };
+    const auth = useAuth();
 
     const nextSlide = () => {
         setCurrentSlide((currentSlide + 1) % courses.length);
@@ -76,7 +68,6 @@ const ComplexSearch = () => {
 
 
     useEffect(() => {
-        fetchCourses();
         handleLoadingCategories();
         setNumElements(getSlidesPerView());
 
@@ -322,18 +313,17 @@ const ComplexSearch = () => {
                         console.log(index);
 
                         return (
-                            <Link to={`/courses/${course.id}`}>
                                 <Card
                                     className="max-w-sm mx-2 my-6"
                                     key={index}
                                     imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
                                     imgSrc={images[index]}
                                 >
-                                    <a href="#">
-                                        <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0">
+                                    <Link to={`/courses/${course.title}`}>
+                                        <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0 underline hover:no-underline">
                                             {course.title}
                                         </h5>
-                                    </a>
+                                    </Link>
                                     <div className={"flex flex-col  sm:flex-row gap-2"}>
 
                                         <p className="mt-0.5 text-sm font-normal text-gray-700 dark:text-gray-400">
@@ -399,15 +389,17 @@ const ComplexSearch = () => {
                                     <div className="flex items-center justify-between">
                                     <span
                                         className="text-sm font-bold text-gray-900 dark:text-white">${course.price}</span>
-                                        <a
-                                            href="#"
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                auth.addToCart(course);
+                                            }}
                                             className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
                                         >
                                             Add to cart
-                                        </a>
+                                        </button>
                                     </div>
                                 </Card>
-                            </Link>
                         );
                     })}
                 </Carousel>
@@ -434,18 +426,17 @@ const ComplexSearch = () => {
 
                         return (
 
-                            <Link to={`/courses/${course.title}`}>
                                 <Card
                                     className="max-w-sm mx-2 my-6"
                                     key={index}
                                     imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
                                     imgSrc={images[index]}
                                 >
-                                    <a href="#">
+                                    <Link to={`/courses/${course.title}`}>
                                         <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white my-0">
                                             {course.title}
                                         </h5>
-                                    </a>
+                                    </Link>
                                     <div className={"flex flex-col  sm:flex-row gap-2"}>
 
                                         <p className="mt-0.5 text-sm font-normal text-gray-700 dark:text-gray-400">
@@ -511,15 +502,17 @@ const ComplexSearch = () => {
                                     <div className="flex items-center justify-between">
                                     <span
                                         className="text-sm font-bold text-gray-900 dark:text-white">${course.price}</span>
-                                        <a
-                                            href="#"
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                auth.addToCart(course);
+                                            }}
                                             className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
                                         >
                                             Add to cart
-                                        </a>
+                                        </button>
                                     </div>
                                 </Card>
-                            </Link>
                         );
                     })}
                 </Carousel>
@@ -538,7 +531,6 @@ const ComplexSearch = () => {
                         const [img, name] = category;
                         return (
                             <Link to={`/course?category-name=${name}`}
-                            key={index}
                                   className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
                                 <img src={img} alt={name}/>
                                 <p>{name}</p>

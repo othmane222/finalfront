@@ -7,6 +7,7 @@ import {useLocation} from "react-router-dom";
 
 const NavBar =  () => {
     const auth = useAuth();
+
     const location = useLocation();
 
     return (
@@ -39,6 +40,7 @@ const NavBar =  () => {
             <Navbar.Collapse>
                 <Navbar.Link active={location.pathname.includes("/dashboard")} href="/dashboard">DashBoard</Navbar.Link>
                 <Navbar.Link active={location.pathname.includes("/courses")} href="/courses"> Courses</Navbar.Link>
+                <Navbar.Link active={location.pathname.includes("/cart")} href="/cart"> Cart <span className={"h-10 w-10 bg-red-600 rounded-[9999px] px-1 py-1 text-white "}>{auth.cart.length >0 && auth.cart.length}</span></Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     );

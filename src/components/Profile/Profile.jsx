@@ -10,38 +10,36 @@ const ProfilePage = () => {
   const [courses, setCourses] = useState([]); // State for courses
   const [error, setError] = useState('');
 
+  const fetchTeacherInfo = async () => {
+    try {
+      const currentUser = AuthService.getCurrentUser(); // Get the current user
+      if (!currentUser || !currentUser.id) {
+        setError('User not logged in.');
+        return;
+      }
+
+      // Fetch teacher information
+      const userResponse = await axios.get(`http://localhost:8080/api/users/${currentUser.id}`);
+      setTeacherInfo(userResponse.data);
+
+      // Fetch courses if the user is a teacher
+      if (userResponse.data.role === 'TEACHER') {
+        const coursesResponse = await axios.get(`http://localhost:8080/api/courses/teacher/${currentUser.id}`);
+        console.log("Courses response:", coursesResponse.data); // Log the response
+        setCourses(Array.isArray(coursesResponse.data) ? coursesResponse.data : []);
+        console.log('')
+      }
+    } catch (err) {
+      setError('Error fetching teacher information or courses.');
+    }
+  };
+
+
   useEffect(() => {
-    const fetchTeacherInfo = async () => {
-        try {
-          const currentUser = AuthService.getCurrentUser(); // Get the current user
-          if (!currentUser || !currentUser.id) {
-            setError('User not logged in.');
-            return;
-          }
-      
-          // Fetch teacher information
-          const userResponse = await axios.get(`http://localhost:8081/api/users/${currentUser.id}`);
-          setTeacherInfo(userResponse.data);
-      
-          // Fetch courses if the user is a teacher
-          if (userResponse.data.role === 'TEACHER') {
-            const coursesResponse = await axios.get(`http://localhost:8081/api/courses/teacher/${currentUser.id}`);
-            console.log("Courses response:", coursesResponse.data); // Log the response
-            setCourses(Array.isArray(coursesResponse.data) ? coursesResponse.data : []);
-            console.log('')
-          }
-        } catch (err) {
-          setError('Error fetching teacher information or courses.');
-        }
-      };
-      
 
     fetchTeacherInfo();
   }, []);
 
-  if (error) {
-    return <div className="text-red-500 text-center mt-4">{error}</div>;
-  }
 
   if (!teacherInfo) {
     return <div className="text-center text-gray-500 mt-4">Loading...</div>;
