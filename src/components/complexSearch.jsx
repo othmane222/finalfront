@@ -30,6 +30,7 @@ const ComplexSearch = () => {
     const [focus, setFocus] = useState(false);
     //const [currentSlide, setCurrentSlide] = useState(0);
     const [setNumElements] = useState(1);
+    
 
     const fetchCourses = async () => {
         try {
@@ -68,7 +69,7 @@ const ComplexSearch = () => {
             console.log("Signup error: " + (error.response?.data?.message || error.message));
             setAlertType("failure");
         });
-    }, []); 
+    }, [setAlertType, setResponseMessage]); 
 
 
 
