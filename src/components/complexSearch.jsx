@@ -1,5 +1,5 @@
 //import {Dropdown} from "flowbite-react";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useCallback} from "react";
 import AdminRequests from "../services/AdminRequests";
 //import coursesData from "../fake_data/courses.json"
 import Carousel from "react-multi-carousel";
@@ -56,22 +56,19 @@ const ComplexSearch = () => {
     return 1;
     };
 
-    const handleLoadingCategories = () => {
-
-        debugger;
+    const handleLoadingCategories = useCallback(() => {
         AdminRequests.getAllCategories().then(
             (response) => {
                 setResponseMessage("Categories loaded successfully.");
                 setAlertType("success");
-                console.log(response.data)
+                console.log(response.data);
                 setCategories(response.data);
             }).catch((error) => {
             setResponseMessage("Signup error: " + (error.response?.data?.message || error.message));
             console.log("Signup error: " + (error.response?.data?.message || error.message));
             setAlertType("failure");
         });
-    };
-
+    }, []); 
 
 
 
