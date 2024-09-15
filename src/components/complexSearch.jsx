@@ -45,9 +45,9 @@ const ComplexSearch = () => {
     /*const nextSlide = () => {
         setCurrentSlide((currentSlide + 1) % courses.length);
     }*/
-    const prevSlide = () => {
+    /*const prevSlide = () => {
         setCurrentSlide((currentSlide - 1 + courses.length) % courses.length);
-    }
+    }*/
     const getSlidesPerView = () => {
     const width = window.innerWidth;
     if (width >= 1024) return 5; // for large screens
@@ -80,8 +80,7 @@ const ComplexSearch = () => {
         handleLoadingCategories();
         setNumElements(getSlidesPerView());
 
-    }, []);
-
+    }, [handleLoadingCategories, setNumElements]);
     /*const getXgivenId = (id) => {
         return document.getElementById(id).getBoundingClientRect().left;
     }*/

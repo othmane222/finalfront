@@ -25,7 +25,7 @@ const Footer = () => {
                   <li><a href="/" class="transition hover:text-primary">Terms of Use</a></li>
                 </ul>
 
-                <ul role="list" class="space-y-8">
+                <ul class="space-y-8">
                   <li>
                     <a href="/" class="flex items-center space-x-3 transition hover:text-primary">
                       <svg

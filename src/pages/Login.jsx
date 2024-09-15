@@ -9,10 +9,10 @@ import {HiInformationCircle } from "react-icons/hi";
 import {useAuth} from "../hooks/AuthProvider";
 
 const Login = () => {
-    const [name] = useState('')
+    //const [name] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [role] = useState('STUDENT')
+    //const [role] = useState('STUDENT')
     const [responseMessage, setResponseMessage] = useState('')
     const [loadingState, setLoadingState] = useState("idle");
     const navigate = useNavigate()

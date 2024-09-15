@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './CourseGrid.module.css';
 
+
 const CourseGrid = () => {
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +16,7 @@ const CourseGrid = () => {
 
   useEffect(() => {
     handleFilter();
-  }, [searchTerm, minPrice, maxPrice]);
+  }, [searchTerm, minPrice, maxPrice,handleFilter]);
 
   const fetchCourses = async () => {
     try {

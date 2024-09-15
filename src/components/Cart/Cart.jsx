@@ -14,7 +14,7 @@ const Cart = ({ cartItems, onClose }) => {
       <LandingNav/>
       <div className="cart-header">
         <h2>Your Cart</h2>
-        //cart code
+       
       </div>
     </div>
   );

@@ -55,8 +55,6 @@ const App = () => {
           <Route path="manage-courses" element={<ManageTeachers />} />
 
         </Route>
-
-      	// Course routes
         <Route path="/course-grid" element={<CourseGrid />} />
         <Route path="/course/:id" element={<CourseDetails />} />
         <Route path="/courses/:courseId/video/:videoId" element={<VideoDetails />} />
