@@ -28,7 +28,7 @@ const ComplexSearch = () => {
     const [setResponseMessage] = useState("");
     const [search, setSearch] = useState("");
     const [focus, setFocus] = useState(false);
-    const [currentSlide, setCurrentSlide] = useState(0);
+    //const [currentSlide, setCurrentSlide] = useState(0);
     const [setNumElements] = useState(1);
 
     const fetchCourses = async () => {

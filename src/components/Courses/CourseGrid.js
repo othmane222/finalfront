@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './CourseGrid.module.css';
-
 
 const CourseGrid = () => {
   const [courses, setCourses] = useState([]);
@@ -9,14 +8,6 @@ const CourseGrid = () => {
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-
-  useEffect(() => {
-    fetchCourses();
-  }, []);
-
-  useEffect(() => {
-    handleFilter();
-  }, [searchTerm, minPrice, maxPrice,handleFilter]);
 
   const fetchCourses = async () => {
     try {
@@ -29,7 +20,7 @@ const CourseGrid = () => {
     }
   };
 
-  const handleFilter = () => {
+  const handleFilter = useCallback(() => {
     let results = courses;
 
     if (searchTerm !== '') {
@@ -49,7 +40,15 @@ const CourseGrid = () => {
     }
 
     setFilteredCourses(results);
-  };
+  }, [courses, searchTerm, minPrice, maxPrice]);
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  useEffect(() => {
+    handleFilter();
+  }, [searchTerm, minPrice, maxPrice, handleFilter]);
 
   return (
     <div className={styles.container}>
