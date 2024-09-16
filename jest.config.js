@@ -1,11 +1,11 @@
 module.exports = {
   transform: {
-    '^.+\\.[t|j]sx?$': 'babel-jest',
+    '^.+\\.jsx?$': 'babel-jest',
   },
-  transformIgnorePatterns: [
-    '/node_modules/(?!axios)',
-  ],
-  moduleNameMapper: {
-    '^axios$': require.resolve('axios'), // Resolve axios correctly
+  extensionsToTreatAsEsm: ['.jsx', '.js'],
+  globals: {
+    'babel-jest': {
+      useESM: true,
+    },
   },
 };
