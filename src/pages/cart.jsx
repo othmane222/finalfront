@@ -9,6 +9,7 @@ import {useAuth} from "../hooks/AuthProvider";
 import {useEffect, useState} from "react";
 import { Button, Modal } from 'flowbite-react'
 import axios from 'axios'
+import CourseRequests from '@/src/services/CourseRequests'
 
 const Cart = () => {
     const auth = useAuth();
@@ -17,6 +18,7 @@ const Cart = () => {
     const [bookmarked, setBookmarked] = useState(false);
     const [openModal, setOpenModal] = useState(false);
     const [modalPlacement, setModalPlacement] = useState('center')
+    const [response, setResponse ] = useState("");
 
     useEffect(() => {
     const total = auth.cart.reduce((total, course) => total + course.price, 0);
@@ -129,7 +131,24 @@ const Cart = () => {
                             </div>
 
                             <button
-                                onClick={() => setOpenModal(true)}
+                                onClick={() => {
+
+                                    auth.cart.map((course) => {
+
+                                            CourseRequests.subscribeToCourse(auth.user.id, course.id).then(
+                                                (response) => {setResponse(response);
+                                                    auth.setCart([]);
+                                                    localStorage.setItem('cart', JSON.stringify([]));
+                                                }
+
+                                            ).catch((err)=> setResponse(err))
+
+                                        }
+
+                                    )
+                                    setOpenModal(true)
+                                }
+                                }
                                className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Proceed
                                 to Checkout</button>
                             <Modal
@@ -143,12 +162,11 @@ const Cart = () => {
                                         <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                                             for this demo app, purchases are done successfully because we don't have access to a payment gateway such as stripe or paypal.
                                         </p>
+                                        {response}
                                     </div>
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button onClick={() => {
-                                        auth.setCart([]);
-                                        localStorage.setItem('cart', JSON.stringify([]));
                                         setOpenModal(false)}}>I accept</Button>
                                     <Button color="gray" onClick={() => setOpenModal(false)}>
                                         Close
