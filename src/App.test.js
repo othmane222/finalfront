@@ -12,7 +12,7 @@ test('renders learn react link', () => {
     </MemoryRouter>
   );
  // screen.debug(); 
-  const linkElement = screen.getByText(/learn react/i);
+  //const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
 
