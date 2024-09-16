@@ -9,7 +9,7 @@ import {useAuth} from "../hooks/AuthProvider";
 import {useEffect, useState} from "react";
 import { Button, Modal } from 'flowbite-react'
 import axios from 'axios'
-import CourseRequests from '@/src/services/CourseRequests'
+import CourseRequests from '../services/CourseRequests'
 
 const Cart = () => {
     const auth = useAuth();
@@ -21,6 +21,12 @@ const Cart = () => {
     const [response, setResponse ] = useState("");
 
     useEffect(() => {
+        CourseRequests.getAllSubscribedCourses(auth.user.id).then((response)=> {
+            auth.setOwnedCourses(response)
+            console.log(response);
+        }
+        )
+            .catch((err) => console.log(err))
     const total = auth.cart.reduce((total, course) => total + course.price, 0);
     setTotal(total);
 }, [auth.cart]);
@@ -146,6 +152,7 @@ const Cart = () => {
                                         }
 
                                     )
+                                    console.log(response);
                                     setOpenModal(true)
                                 }
                                 }
@@ -162,7 +169,7 @@ const Cart = () => {
                                         <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                                             for this demo app, purchases are done successfully because we don't have access to a payment gateway such as stripe or paypal.
                                         </p>
-                                        {response}
+                                        {response.data}
                                     </div>
                                 </Modal.Body>
                                 <Modal.Footer>

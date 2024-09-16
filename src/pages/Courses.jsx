@@ -7,9 +7,23 @@ import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import {useAuth} from "../hooks/AuthProvider";
 import ComplexSearch from "../components/complexSearch";
+import { useEffect } from 'react'
+import CourseRequests from '../services/CourseRequests'
+
+
 
 const Courses = () => {
     const auth = useAuth();
+
+    useEffect(() => {
+
+        CourseRequests.getAllSubscribedCourses(auth.user.id).then((response)=> {
+                auth.setOwnedCourses(response)
+                console.log(response);
+            }
+        )
+            .catch((err) => console.log(err))
+    }, [])
 
     if (!auth.user) {
         return <div> loading ...</div>;

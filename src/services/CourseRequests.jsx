@@ -7,9 +7,9 @@ axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, PUT,
 export const getAllSubscribedCourses = (id) => {
     return axios.get(CourseRequests.listSubscriptionUrl(id));
 };
-export const subscribeToCourse = (userId, courseId) => {
-    return axios.post(CourseRequests.subscribeURL(), {userId, courseId});
 
+export const subscribeToCourse = (userId, courseId) => {
+    return axios.post(`${CourseRequests.subscribeURL()}?userId=${userId}&courseId=${courseId}`, {courseId});
 }
 
 const CourseRequests = {

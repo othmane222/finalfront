@@ -9,13 +9,14 @@ import Layout from "../components/Layout";
 import {useAuth} from "../hooks/AuthProvider";
 import {Link} from "react-router-dom";
 import {Card} from "flowbite-react";
-import {useState} from "react";
+import { useEffect, useState } from 'react'
 import coursesData from "../fake_data/courses.json";
 import img1 from "../fake_data/course_images/course-1.png";
 import img2 from "../fake_data/course_images/course-2.png";
 import img3 from "../fake_data/course_images/course-3.png";
 import img4 from "../fake_data/course_images/course-4.png";
 import img5 from "../fake_data/course_images/course-5.png";
+import CourseRequests from '../services/CourseRequests'
 
 
 const DashBoard = () => {
@@ -25,6 +26,18 @@ const DashBoard = () => {
     const [continuewatching, watched, upcoming, ...bookmark] = courses;
     const images = [img1, img2, img3, img4, img5];
     const [continuewatching_img, watched_img, upcoming_img, ...bookmark_img] = images;
+
+
+    useEffect(() => {
+
+        CourseRequests.getAllSubscribedCourses(auth.user.id).then((response)=> {
+                auth.setOwnedCourses(response)
+                console.log(response);
+            }
+        )
+            .catch((err) => console.log(err))
+    }, [])
+
     return (
         <Layout>
 
