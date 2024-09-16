@@ -11,9 +11,10 @@ test('renders learn react link', () => {
       <App />
     </MemoryRouter>
   );
- // screen.debug(); 
-  //const linkElement = screen.getByText(/learn react/i);
-  //expect(linkElement).toBeInTheDocument();
+  screen.debug(); 
+  //
+const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
 });
 
 // New test for CourseDetails component
