@@ -6,8 +6,10 @@ import Modal from './Modal';
 import { FaFilePdf } from 'react-icons/fa';
 import styles from './CourseDetails.module.css';
 
+
 const CourseDetails = () => {
     const { id } = useParams();
+
     const [course, setCourse] = useState(null);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isDetailsVisible, setIsDetailsVisible] = useState(true);
