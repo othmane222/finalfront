@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import {Link} from "react-router-dom";
 import Layout from "./Layout";
-import CourseDetailsData from "../fake_data/detailed_course.json";
+//import CourseDetailsData from "../fake_data/detailed_course.json";
 import {useState} from "react";
 import img1 from "../fake_data/course_images/course-2.png";
 import {Image} from "lucide-react";
