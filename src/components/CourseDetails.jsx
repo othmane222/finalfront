@@ -6,7 +6,7 @@ import {useState} from "react";
 import img1 from "../fake_data/course_images/course-2.png";
 import {Image} from "lucide-react";
 import { render, screen, fireEvent } from '@testing-library/react';
-import CourseDetails from './CourseDetails'; // Adjust path as needed
+//import CourseDetails from './CourseDetails'; // Adjust path as needed
 
 const CourseDetails = () => {
     const { courseName } = useParams()
