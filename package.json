@@ -10,6 +10,7 @@
       "@babel/plugin-transform-private-property-in-object"
     ]
   },
+  
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -44,7 +45,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "integration-tests": "jest --config=jest.integration.config.js"
   },
   "eslintConfig": {
     "extends": [
