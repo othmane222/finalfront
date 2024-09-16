@@ -7,12 +7,16 @@ import img5 from "../fake_data/course_images/course-5.png";
 import Layout from "../components/Layout";
 import {useAuth} from "../hooks/AuthProvider";
 import {useEffect, useState} from "react";
+import { Button, Modal } from 'flowbite-react'
+import axios from 'axios'
 
 const Cart = () => {
     const auth = useAuth();
     const [total, setTotal] = useState(0);
     const images = [img1, img2, img3, img4, img5];
     const [bookmarked, setBookmarked] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
+    const [modalPlacement, setModalPlacement] = useState('center')
 
     useEffect(() => {
     const total = auth.cart.reduce((total, course) => total + course.price, 0);
@@ -124,9 +128,33 @@ const Cart = () => {
 
                             </div>
 
-                            <a href="#"
+                            <button
+                                onClick={() => setOpenModal(true)}
                                className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Proceed
-                                to Checkout</a>
+                                to Checkout</button>
+                            <Modal
+                                show={openModal}
+                                position={modalPlacement}
+                                onClose={() => setOpenModal(false)}
+                            >
+                                <Modal.Header>purchase Done successfully</Modal.Header>
+                                <Modal.Body>
+                                    <div className="space-y-6 p-6">
+                                        <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                            for this demo app, purchases are done successfully because we don't have access to a payment gateway such as stripe or paypal.
+                                        </p>
+                                    </div>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button onClick={() => {
+                                        auth.setCart([]);
+                                        localStorage.setItem('cart', JSON.stringify([]));
+                                        setOpenModal(false)}}>I accept</Button>
+                                    <Button color="gray" onClick={() => setOpenModal(false)}>
+                                        Close
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
 
                             <div className="flex items-center justify-center gap-2">
                                 <span className="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
