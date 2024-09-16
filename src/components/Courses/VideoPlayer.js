@@ -7,9 +7,9 @@ const VideoPlayer = ({ videoSrc }) => {
     useEffect(() => {
         if (videoRef.current) {
             const videoElement = videoRef.current;
-            videoElement.pause();
+            //videoElement.pause();
             videoElement.src = videoSrc;
-            videoElement.load();
+            //videoElement.load();
             
             const playVideo = () => {
                 videoElement.play().catch(error => {
@@ -26,7 +26,7 @@ const VideoPlayer = ({ videoSrc }) => {
 
             return () => {
                 videoElement.removeEventListener('loadeddata', handleLoadedData);
-                videoElement.pause();
+               // videoElement.pause();
                 videoElement.src = '';
             };
         }
