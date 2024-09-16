@@ -9,7 +9,7 @@ const VideoDetails = () => {
     const [video, setVideo] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/api/videos/${id}`)
+        axios.get(`http://localhost:8080/api/videos/${id}`)
             .then(response => {
                 setVideo(response.data);    
             })

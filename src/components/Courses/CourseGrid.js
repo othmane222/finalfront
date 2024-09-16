@@ -19,7 +19,7 @@ const CourseGrid = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch('http://localhost:8081/api/courses');
+      const response = await fetch('http://localhost:8080/api/courses');
       const data = await response.json();
       setCourses(data);
       setFilteredCourses(data);
