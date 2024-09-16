@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
-import CourseDetails from './components/CourseDetails'; // Import the component
-import VideoPlayer from './components/VideoPlayer'; // Import the component
+import CourseDetails from '../src/components/Courses/CourseDetails'; // Import the component
+import VideoPlayer from '../src/components/Courses/VideoPlayer'; // Import the component
 
 // Existing App component test
 test('renders learn react link', () => {
