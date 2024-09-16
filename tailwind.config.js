@@ -22,6 +22,13 @@ module.exports = {
         'layout3': 'auto auto',
         'layout4': '70% 30%'
       },
+      gridTemplateColumns : {
+        'layout' : "30% 70%",
+        'layout4' : "70% 30%  ",
+        'layout2': "1fr 1fr",
+        'layout3' : "20% 60% 20%",
+
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
