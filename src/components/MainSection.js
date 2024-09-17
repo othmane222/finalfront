@@ -1,5 +1,5 @@
 //import LandingNav from "./LandingNav";
-import hero from "../hero.png";
+//import hero from "../hero.png";
 //import {Container} from "@mui/material";
 import {Link} from "react-router-dom";
 //import {useState} from "react";
@@ -32,7 +32,7 @@ const MainSection = () => {
                     </div>
                 </div>
                 <div className="w-full md:w-3/5 py-6 text-center">
-                    <img alt="" className="w-full md:w-4/5 z-50" src={hero} />
+                   
                 </div>
             </div>
         <div className="relative -mt-12 lg:-mt-24 ">
