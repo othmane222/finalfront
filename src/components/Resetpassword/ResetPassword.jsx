@@ -3,7 +3,7 @@ import { Snackbar, Alert } from '@mui/material';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios'; // Import axios for making HTTP requests
-import '../Resetpassword/Resetpassword.css'
+
 
 const ResetPassword = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
