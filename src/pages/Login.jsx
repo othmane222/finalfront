@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import AuthService from '../services/AuthService'
-import groupOfStudents from "../Assets/group-of-students.jpeg"
-import {Image} from "lucide-react";
+//import groupOfStudents from "../Assets/group-of-students.jpeg"
+//import {Image} from "lucide-react";
 import {Alert, Spinner} from "flowbite-react";
 import { FaCheckCircle } from "react-icons/fa";
 import {HiInformationCircle } from "react-icons/hi";
@@ -139,7 +139,7 @@ const Login = () => {
                         CRAFTY
                     </div>
                     <div>
-                        <Image src={groupOfStudents} alt="group of students" />
+                  
                     </div>
                 </div>
                 <div className="lg:p-8">
